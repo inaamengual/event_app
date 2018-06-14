@@ -1,0 +1,18 @@
+<h2><%= @inventory_item.name %></h2>
+<p> more description </p>
+
+
+
+
+<%= form_with(model: @inventory_item, local: true) do |form| %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

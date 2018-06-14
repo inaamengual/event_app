@@ -1,7 +1,41 @@
-<h2>Sign up</h2>
+<%= render "companies/shared/links" %>
+
+
+<h2>Company Sign up</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
+
+  <div class="field">
+    <%= f.label :company_name %><br />
+    <%= f.email_field :company_name, autofocus: true, autocomplete: "Company Name" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :address %><br />
+    <%= f.email_field :address, autofocus: true, autocomplete: "Address" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :phone_number %><br />
+    <%= f.email_field :phone_number, autofocus: true, autocomplete: "Phone Number" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :service_distance %><br />
+    <%= f.email_field :service_distance, autofocus: true, autocomplete: "Service Distance" %>
+  </div>
+
+  <% ["furniture", "decoration", "tableware", "production", "kids", "service"].each do |c| %>
+    <%= f.label :categories %>
+    <%= f.check_box(:category , {multiple: true}, c) %>
+    <%= f.label c.to_sym %>
+  <% end %>
+
+
+
+
+
 
   <div class="field">
     <%= f.label :email %><br />
@@ -25,5 +59,3 @@
     <%= f.submit "Sign up" %>
   </div>
 <% end %>
-
-<%= render "companies/shared/links" %>

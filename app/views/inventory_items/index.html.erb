@@ -1,0 +1,8 @@
+<h1>ITEMS</h1>
+
+
+<ul>
+  <% current_company.inventory_items.each do |item| %>
+    <%= link_to "#{item.name}", item %></br>
+  <% end %>
+</ul>

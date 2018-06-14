@@ -1,0 +1,40 @@
+
+
+<h1>Make an item</h1>
+
+<%= form_with(model: @inventory_item, local: true) do |form| %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+  <div class="field">
+    <%= form.label :quantity %>
+    <%= form.number_field :name %>
+  </div>
+  <div class="field">
+    <%= form.label :price %>
+    <%= form.number_field :name %>
+  </div>
+
+
+    <% ["furniture", "decoration", "tableware", "production", "kids", "service"].each do |c| %>
+      <%= form.label :categories %>
+      <%= form.check_box(:category , {multiple: true}, c) %>
+      <%= form.label c.to_sym %>
+    <% end %>
+    <% ["furniture", "decoration", "tableware", "production", "kids", "service"].each do |c| %>
+      <%= form.label :subcategories %>
+      <%= form.check_box(:subcategory , {multiple: true}, c) %>
+      <%= form.label c.to_sym %>
+    <% end %>
+  </div>
+
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+
+
+
+<% end %>

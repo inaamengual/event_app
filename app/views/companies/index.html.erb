@@ -1,7 +1,8 @@
-<h1>Companies</h1>
+<h1> All companies </h1>
+
 
 <ul>
   <% @companies.each do |company| %>
-    <li><%= company.email %></li>
+    <%= link_to "#{company.email}", company %></br>
   <% end %>
 </ul>

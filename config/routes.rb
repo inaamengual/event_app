@@ -1,39 +1,43 @@
 Rails.application.routes.draw do
-  root to: 'welcome#index'
-
-  authenticated :user do
-    root to: "companies#index", as: :authenticated_user_root
+  # devise routes, keep in this order ###################
+  devise_scope :user do
+    authenticated :user do
+      root                to: "companies#index",
+                          as: :authenticated_user_root
+    end
   end
-
-  authenticated :company do
-    root to: "companies#show", as: :authenticated_company_root
+  devise_scope :company do
+    authenticated :company do
+      root                to: "inventory_items#index",
+                          as: :authenticated_company_root
+    end
   end
-
-  devise_for :companies,
-    path: 'companies',
+  devise_for :companies,  path: "companies",
     controllers: {
-      sessions: 'companies/sessions',
-      registrations: 'companies/registrations',
-      passwords: 'companies/passwords'
+      sessions:           "companies/sessions",
+      registrations:      "companies/registrations",
+      passwords:          "companies/passwords"
     }
-
-  devise_for :users,
-    path: 'users',
+  devise_for :users,      path: "users",
     controllers: {
-      sessions: 'users/sessions',
-      registrations: 'users/registrations',
-      passwords: 'users/passwords'
+      sessions:           "users/sessions",
+      registrations:      "users/registrations",
+      passwords:          "users/passwords"
     }
-
-  resources :companies, only: [:index, :show]
-
-  unauthenticated :user do
-    root to: "users/sessions#new"
-  end
-
-  unauthenticated :company do
-    root to: "companies/sessions#new"
-  end
+  root                    to: "users/sessions#new"
+  # non-devise routes ####################################
+  resources :companies, only: [:index, :show, :edit, :update]
+  resources :inventory_items
 
 
 end
+
+
+# need routes for edit registrations/passwords
+# need to create inventory_items --
+#   -images on items & companies
+#   -show items on search bar above
+#   -edit items
+# need to create booking_request table --
+#   -CALENDAR function
+#   -approve/decline request

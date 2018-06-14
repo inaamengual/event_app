@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_06_13_211515) do
+ActiveRecord::Schema.define(version: 2018_06_14_165845) do
 
   create_table "companies", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -25,8 +25,26 @@ ActiveRecord::Schema.define(version: 2018_06_13_211515) do
     t.string "last_sign_in_ip"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "company_name"
+    t.string "address"
+    t.string "phone_number"
+    t.integer "service_distance"
+    t.string "category"
     t.index ["email"], name: "index_companies_on_email", unique: true
     t.index ["reset_password_token"], name: "index_companies_on_reset_password_token", unique: true
+  end
+
+  create_table "inventory_items", force: :cascade do |t|
+    t.string "category"
+    t.string "subcategory"
+    t.string "name"
+    t.integer "quantity"
+    t.integer "price"
+    t.string "calendar"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "company_id"
+    t.index ["company_id"], name: "index_inventory_items_on_company_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -42,6 +60,9 @@ ActiveRecord::Schema.define(version: 2018_06_13_211515) do
     t.string "last_sign_in_ip"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "first_name"
+    t.string "last_name"
+    t.string "phone_number"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

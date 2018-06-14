@@ -34,10 +34,8 @@ end
 
 
 # need routes for edit registrations/passwords
-# need to create inventory_items --
 #   -images on items & companies
 #   -show items on search bar above
-#   -edit items
 # need to create booking_request table --
 #   -CALENDAR function
 #   -approve/decline request

@@ -11,6 +11,31 @@
     <%= form.text_field :name %>
   </div>
 
+  <div class="field">
+    <%= form.label :quantity %>
+    <%= form.number_field :quantity %>
+  </div>
+
+  <div class="field">
+    <%= form.label :price %>
+    <%= form.number_field :price %>
+  </div>
+
+  <% ["furniture", "decoration", "tableware", "production", "kids", "service"].each do |c| %>
+    <%= form.label :categories %>
+    <%= form.check_box(:category , {multiple: true}, c) %>
+    <%= form.label c.to_sym %>
+  <% end %>
+
+  <% ["furniture", "decoration", "tableware", "production", "kids", "service"].each do |c| %>
+    <%= form.label :subcategories %>
+    <%= form.check_box(:subcategory , {multiple: true}, c) %>
+    <%= form.label c.to_sym %>
+  <% end %>
+
+
+
+
 
   <div class="actions">
     <%= form.submit %>

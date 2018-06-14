@@ -8,6 +8,37 @@
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
 
+
+  <div class="field">
+    <%= f.label :company_name %><br />
+    <%= f.text_field :company_name, autofocus: true, autocomplete: "Company Name" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :address %><br />
+    <%= f.text_field :address, autofocus: true, autocomplete: "Address" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :phone_number %><br />
+    <%= f.text_field :phone_number, autofocus: true, autocomplete: "Phone Number" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :service_distance %><br />
+    <%= f.number_field :service_distance, autofocus: true, autocomplete: "Service Distance" %>
+  </div>
+
+  <% ["furniture", "decoration", "tableware", "production", "kids", "service"].each do |c| %>
+    <%= f.label :categories %>
+    <%= f.check_box(:category , {multiple: true}, c) %>
+    <%= f.label c.to_sym %>
+  <% end %>
+
+
+
+
+
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
     <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
   <% end %>

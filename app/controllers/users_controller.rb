@@ -1,11 +1,17 @@
 class UsersController < ApplicationController
 
   def show
-    @users = current_users || User.find(params[:id])
+    @user = current_user || User.find(params[:id])
   end
 
   def index
     @users = User.all
   end
 
+  def destroy
+
+    @user = current_user || User.find(params[:id])
+    @user.destroy
+
+  end
 end

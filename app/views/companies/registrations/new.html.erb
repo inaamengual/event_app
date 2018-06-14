@@ -8,22 +8,22 @@
 
   <div class="field">
     <%= f.label :company_name %><br />
-    <%= f.email_field :company_name, autofocus: true, autocomplete: "Company Name" %>
+    <%= f.text_field :company_name, autofocus: true, autocomplete: "Company Name" %>
   </div>
 
   <div class="field">
     <%= f.label :address %><br />
-    <%= f.email_field :address, autofocus: true, autocomplete: "Address" %>
+    <%= f.text_field :address, autofocus: true, autocomplete: "Address" %>
   </div>
 
   <div class="field">
     <%= f.label :phone_number %><br />
-    <%= f.email_field :phone_number, autofocus: true, autocomplete: "Phone Number" %>
+    <%= f.text_field :phone_number, autofocus: true, autocomplete: "Phone Number" %>
   </div>
 
   <div class="field">
     <%= f.label :service_distance %><br />
-    <%= f.email_field :service_distance, autofocus: true, autocomplete: "Service Distance" %>
+    <%= f.number_field :service_distance, autofocus: true, autocomplete: "Service Distance" %>
   </div>
 
   <% ["furniture", "decoration", "tableware", "production", "kids", "service"].each do |c| %>

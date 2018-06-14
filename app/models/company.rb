@@ -5,4 +5,5 @@ class Company < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :inventory_items
+
 end

@@ -17,9 +17,6 @@
       <% elsif current_company %>
         <%= current_company.email %> |
         <%= link_to "Sign Out", destroy_company_session_path, method: :delete %>
-      <% else %>
-        <%= link_to "Sign In User", new_user_session_path %> |
-        <%= link_to "Sign In Company", new_company_session_path %>
       <% end %>
     </div>
     <%= yield %>

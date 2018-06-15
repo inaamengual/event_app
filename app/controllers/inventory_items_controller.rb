@@ -1,6 +1,7 @@
 class InventoryItemsController < ApplicationController
 
   def show
+    @item_rental = ItemRental.new
     @inventory_item = InventoryItem.find(params[:id])
   end
 

@@ -9,3 +9,35 @@
 <% if current_company %>
   <%= link_to 'Edit', edit_inventory_item_path %>
 <%end %>
+
+  <% link_to  %>
+<%= month_calendar events: @inventory_item.booking_requests do |date, bookings| %>
+  <%= date %>
+  <% bookings.each do |booking| %>
+    <div class="booked">Booked</div>
+  <% end %>
+
+
+
+
+
+
+
+
+
+
+
+<% end %>
+
+
+
+
+
+
+
+
+
+
+
+
+<% end %>

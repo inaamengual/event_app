@@ -29,6 +29,7 @@ Rails.application.routes.draw do
   resources :companies, only: [:index, :show, :edit, :update]
   resources :inventory_items
   resources :booking_requests
+  resources :item_rentals
 
 
 end

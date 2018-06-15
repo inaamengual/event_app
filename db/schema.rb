@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_06_15_182350) do
+ActiveRecord::Schema.define(version: 2018_06_15_202445) do
 
   create_table "booking_requests", force: :cascade do |t|
     t.string "venue_name"
@@ -61,9 +61,13 @@ ActiveRecord::Schema.define(version: 2018_06_15_182350) do
     t.index ["company_id"], name: "index_inventory_items_on_company_id"
   end
 
-  create_table "item_rentals", id: false, force: :cascade do |t|
-    t.integer "inventory_item_id"
+  create_table "item_rentals", force: :cascade do |t|
     t.integer "booking_request_id"
+    t.integer "inventory_item_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["booking_request_id"], name: "index_item_rentals_on_booking_request_id"
+    t.index ["inventory_item_id"], name: "index_item_rentals_on_inventory_item_id"
   end
 
   create_table "users", force: :cascade do |t|

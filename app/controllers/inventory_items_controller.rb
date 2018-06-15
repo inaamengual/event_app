@@ -14,7 +14,6 @@ class InventoryItemsController < ApplicationController
 
   def create
     @inventory_item = current_company.inventory_items.build(inventory_item_params)
-
     if @inventory_item.save
       redirect_to @inventory_item
     else

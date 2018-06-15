@@ -3,6 +3,17 @@
 
 <ul>
   <% @companies.each do |company| %>
-    <%= link_to "#{company.email}", company %></br>
+  <div>
+
+    <p>company image</p>
+    <p><%= company.company_name%></p>
+    <p><%= link_to "#{company.email}", company %></p>
+    <p>categories</p>
+    </br>
+    </br>
+    </br>
+    </br>
+
+  </div>
   <% end %>
 </ul>

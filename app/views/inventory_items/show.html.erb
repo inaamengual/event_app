@@ -1,43 +1,11 @@
 <h2><%= @inventory_item.name %></h2>
-<p> more description </p>
 
+<%= "#{@inventory_item.quantity} Available"%>
+<%= "$#{@inventory_item.price}"%>
+<%= "#{@inventory_item.category} "%>
+<%= "#{@inventory_item.subcategory} "%>
+<%= "More Info: #{@inventory_item.description}"%>
 
-
-
-<%= form_with(model: @inventory_item, local: true) do |form| %>
-
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-  </div>
-
-  <div class="field">
-    <%= form.label :quantity %>
-    <%= form.number_field :quantity %>
-  </div>
-
-  <div class="field">
-    <%= form.label :price %>
-    <%= form.number_field :price %>
-  </div>
-
-  <% ["furniture", "decoration", "tableware", "production", "kids", "service"].each do |c| %>
-    <%= form.label :categories %>
-    <%= form.check_box(:category , {multiple: true}, c) %>
-    <%= form.label c.to_sym %>
-  <% end %>
-
-  <% ["furniture", "decoration", "tableware", "production", "kids", "service"].each do |c| %>
-    <%= form.label :subcategories %>
-    <%= form.check_box(:subcategory , {multiple: true}, c) %>
-    <%= form.label c.to_sym %>
-  <% end %>
-
-
-
-
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+<% if current_company %>
+  <%= link_to 'Edit', edit_inventory_item_path %>
+<%end %>

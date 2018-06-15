@@ -28,12 +28,13 @@ Rails.application.routes.draw do
   # non-devise routes ####################################
   resources :companies, only: [:index, :show, :edit, :update]
   resources :inventory_items
+  resources :booking_requests
 
 
 end
 
 
-# need routes for edit registrations/passwords
+#   -categories to work
 #   -images on items & companies
 #   -show items on search bar above
 # need to create booking_request table --

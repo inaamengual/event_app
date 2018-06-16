@@ -1,0 +1,16 @@
+<h2><%= "Event ##{@booking_request.id}" %></h2>
+
+
+<%=  "Venue Name: #{@booking_request.venue_name}"%>
+</br>
+<%=  "Location: #{@booking_request.location}"%>
+</br>
+<%=  "Date: #{@booking_request.start_time} to #{@booking_request.end_time}"%>
+</br>
+<%=  "Comments: #{@booking_request.comment}"%>
+
+<h4>Rentals</h4>
+
+<% @booking_request.item_rentals.each do |item| %>
+  <p><%= "#{item.id}:#{item.inventory_item.name}" %></p> <br>
+<%end %>

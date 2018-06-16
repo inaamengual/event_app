@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  venue_name: MyString
+  location: MyString
+  start_time: 2018-06-15 08:51:39
+  end_time: 2018-06-15 08:51:39
+  comment: MyText
+  status: MyString
+  user: one
+
+two:
+  venue_name: MyString
+  location: MyString
+  start_time: 2018-06-15 08:51:39
+  end_time: 2018-06-15 08:51:39
+  comment: MyText
+  status: MyString
+  user: two

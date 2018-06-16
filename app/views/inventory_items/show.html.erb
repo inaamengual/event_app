@@ -1,43 +1,74 @@
 <h2><%= @inventory_item.name %></h2>
-<p> more description </p>
 
+<p><%= "#{@inventory_item.quantity} Available"%></p>
+</br>
+<p><%= "$#{@inventory_item.price}"%></p>
+</br>
+<p><%= "Category: #{@inventory_item.category} "%></p>
+</br>
+<p><%= "Subcategory: #{@inventory_item.subcategory} "%></p>
+</br>
+<p><%= "More Info: #{@inventory_item.description}"%></p>
 
+<% if current_company %>
+  <%= link_to 'Edit', edit_inventory_item_path %>
+<%end %>
 
-
-<%= form_with(model: @inventory_item, local: true) do |form| %>
-
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-  </div>
-
-  <div class="field">
-    <%= form.label :quantity %>
-    <%= form.number_field :quantity %>
-  </div>
-
-  <div class="field">
-    <%= form.label :price %>
-    <%= form.number_field :price %>
-  </div>
-
-  <% ["furniture", "decoration", "tableware", "production", "kids", "service"].each do |c| %>
-    <%= form.label :categories %>
-    <%= form.check_box(:category , {multiple: true}, c) %>
-    <%= form.label c.to_sym %>
-  <% end %>
-
-  <% ["furniture", "decoration", "tableware", "production", "kids", "service"].each do |c| %>
-    <%= form.label :subcategories %>
-    <%= form.check_box(:subcategory , {multiple: true}, c) %>
-    <%= form.label c.to_sym %>
+  <% link_to  %>
+<%= month_calendar events: @inventory_item.booking_requests do |date, bookings| %>
+  <%= date %>
+  <% bookings.each do |booking| %>
+    <div class="booked">Booked</div>
   <% end %>
 
 
+        <% if current_user %>
+          <% current_user.booking_requests.each do |event|  %>
+              <% if event.start_time.to_s.include?(date.to_s) %>
+
+                  <p>Your event: <strong><%= event.venue_name %></p></strong>
+
+                  <%= form_with(model: @item_rental, local: true) do |form| %>
+
+                  <div class="field">
+                    <%= form.hidden_field :booking_request_id, :value => event.id.to_i  %>
+                    <%= form.hidden_field :inventory_item_id, :value => @inventory_item.id.to_i  %>
+                  <div class="actions">
+
+                    <%= form.submit %>
+
+                  </div>
+                  <%end %>
+
+              <%end %>
 
 
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+
+          <%end %>
+
+          <% end %>
+
+
+
+
+
+
+
+
+
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
 <% end %>

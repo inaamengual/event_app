@@ -1,7 +1,10 @@
+<% if current_user %>
 <h1><%="#{current_user.first_name} #{current_user.last_name}'s BOOKING REQUESTS"%></h1>
 
 
-<ul>
+
+
+  <ul>
   <% current_user.booking_requests.each do |booking| %>
   <div>
     <%= link_to "Event # #{booking.id}", booking %>
@@ -12,4 +15,38 @@
     </br>
   </div>
   <% end %>
+  </ul>
+<%end %>
+
+
+<% if current_company %>
+<ul>
+    <% @users.each do |user| %>
+<% user.booking_requests.each do |booking| %>
+<div>
+
+          <%booking.item_rentals.each do |item_request| %>
+
+
+
+    <% if current_company.inventory_items.include?(0..10) == item_request.inventory_item.id  %>
+  <%= link_to "Event # #{booking.id}", booking %>
+  </br>
+  <%= "#{booking.location}" %>
+  <%= "#{booking.start_time}"  %>
+  </br>
+  </br>
+</div>
+
+
+    <% end %>
+
+  <% end %>
+<% end %>
 </ul>
+
+
+
+<%end %>
+
+<%end %>

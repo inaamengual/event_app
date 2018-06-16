@@ -17,10 +17,10 @@ class ItemRentalsController < ApplicationController
 
 
   def create
-
+    booking =
     @item_rental = ItemRental.new(item_rental_params)
     if @item_rental.save
-      redirect_to @booking_request
+      redirect_to item_rentals_path
     else
       render :new
     end
@@ -50,7 +50,7 @@ class ItemRentalsController < ApplicationController
   private
 
   def item_rental_params
-    params.require(:item_rental).permit(:inventory_item_id, :booking_request_id)
+    params.require(:item_rental).permit(:booking_request_id, :inventory_item_id )
 
   end
 

@@ -35,9 +35,8 @@ Rails.application.routes.draw do
 end
 
 
-#   -categories to work
-#   -images on items & companies
-#   -show items on search bar above
-# need to create booking_request table --
-#   -CALENDAR function
-#   -approve/decline request
+  # -categories to work
+  # -functioning search bar
+  # -images on items &
+  # -narrow down current companies events
+  # -approve/decline request

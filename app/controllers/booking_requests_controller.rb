@@ -5,6 +5,7 @@ class BookingRequestsController < ApplicationController
     end
 
     def index
+      @users = User.all
       @booking_request = BookingRequest.all
     end
 

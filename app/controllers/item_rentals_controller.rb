@@ -17,7 +17,8 @@ class ItemRentalsController < ApplicationController
 
 
   def create
-    @item_rental = current_user.booking_request_ids.item_rental.build(item_rental_params)
+
+    @item_rental = ItemRental.new(item_rental_params)
     if @item_rental.save
       redirect_to @booking_request
     else

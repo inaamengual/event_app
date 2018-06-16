@@ -1,32 +1,16 @@
 <h2><%= "Event ##{@booking_request.id}" %></h2>
 
 
+<%=  "Venue Name: #{@booking_request.venue_name}"%>
+</br>
+<%=  "Location: #{@booking_request.location}"%>
+</br>
+<%=  "Date: #{@booking_request.start_time} to #{@booking_request.end_time}"%>
+</br>
+<%=  "Comments: #{@booking_request.comment}"%>
 
-<%= form_with(model: @booking_request, local: true) do |form| %>
+<h4>Rentals</h4>
 
-  <div class="field">
-    <%= form.label :venue_name %>
-    <%= form.text_field :venue_name %>
-  </div>
-  <div class="field">
-    <%= form.label :location %>
-    <%= form.text_field :location %>
-  </div>
-  <div class="field">
-    <%= form.label :start_time %>
-    <%= form.datetime_select :start_time %>
-  </div>
-  <div class="field">
-    <%= form.label :end_time %>
-    <%= form.datetime_select :end_time %>
-  </div>
-  <div class="field">
-    <%= form.label :comment %>
-    <%= form.text_field :comment %>
-  </div>
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-
-
-<% end %>
+<% @booking_request.item_rentals.each do |item| %>
+  <p><%= "#{item.id}:#{item.inventory_item.name}" %></p> <br>
+<%end %>

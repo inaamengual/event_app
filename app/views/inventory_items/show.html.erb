@@ -17,6 +17,26 @@
     <div class="booked">Booked</div>
   <% end %>
 
+        <% if current_user.booking_requests  %>
+          <% current_user.booking_requests.each do |event| %>
+              <% if event.start_time.to_s.include?(date.to_s) %>
+
+                  <p>Your event: <strong><%= event.venue_name %></p></strong>
+
+                  <%= form_with(model: @item_rental, local: true) do |form| %>
+
+                  <div class="field">
+                    <%= form.hidden_field :booking_request_id => event.id  %>
+                    <%= form.hidden_field :inventory_item_id => @inventory_item.id  %>
+                  <div class="actions">
+                    <%= form.submit %>
+                  </div>
+                  <%end %>
+
+              <%end %>
+          <% end %>
+
+          <%end %>
 
 
 
@@ -27,7 +47,7 @@
 
 
 
-<% end %>
+    </div>
 
 
 

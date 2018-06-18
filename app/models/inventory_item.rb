@@ -7,5 +7,4 @@ class InventoryItem < ApplicationRecord
 
 
 
-
 end

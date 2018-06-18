@@ -25,16 +25,11 @@ class ItemRentalsController < ApplicationController
       render :new
     end
 
+  end
 
 
-
-
-
-
-
-
-
-
+  def edit
+    @item_rental = ItemRental.find(params[:id])
 
   end
 
@@ -50,7 +45,7 @@ class ItemRentalsController < ApplicationController
   private
 
   def item_rental_params
-    params.require(:item_rental).permit(:booking_request_id, :inventory_item_id )
+    params.require(:item_rental).permit(:booking_request_id, :inventory_item_id, :status)
 
   end
 

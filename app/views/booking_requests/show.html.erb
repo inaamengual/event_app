@@ -25,7 +25,7 @@
     <td><%= "#{item.id}" %></td>
     <td><%= "#{item.inventory_item.name}"%></td>
     <td><%= "#{Company.find(item.inventory_item.company_id).company_name}"%></td>
-    <td>status</td>
+    <td><%= "#{item.status}"%></td>
     <td><%= "#{item.inventory_item.price}"%></td>
   </tr>
   <%end %>

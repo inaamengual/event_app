@@ -41,7 +41,5 @@ end
 
 
   # -functioning search bar
-  # -images on items &
-  # -narrow down current companies events
-  # -approve/decline request
   # -error when deleting account
+  # -error deleting images

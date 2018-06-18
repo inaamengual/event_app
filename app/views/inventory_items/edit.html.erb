@@ -1,41 +1,60 @@
-
-
-
 <%= form_with(model: @inventory_item, local: true) do |form| %>
 
   <div class="field">
     <%= form.label :name %>
-    <%= form.text_field :name %>
+    <%= form.text_field :name,  value: @inventory_item.name %>
   </div>
 
   <div class="field">
     <%= form.label :quantity %>
-    <%= form.number_field :quantity %>
+    <%= form.number_field :quantity, value: @inventory_item.quantity  %>
   </div>
 
   <div class="field">
     <%= form.label :price %>
-    <%= form.number_field :price %>
+    <%= form.number_field :price, value: @inventory_item.price  %>
   </div>
 
   <div class="field">
     <%= form.label :description %>
-    <%= form.text_field :description %>
+    <%= form.text_field :description, value: @inventory_item.description  %>
   </div>
 
 
-  <% ["furniture", "decoration", "tableware", "production", "kids", "service"].each do |c| %>
-    <%= form.label :categories %>
-    <%= form.check_box(:category , {multiple: true}, c) %>
-    <%= form.label c.to_sym %>
-  <% end %>
+  <div class="">
+     <% subcategories = {
+       'Furniture'      => ["Dinning Chair", "Arm Chair", "Sofa", "Loveseat", "Ottoman", "Bar Stool", "Bench", "Cocktail Table", "Coffee Table", "Dinning Table", "Side Table", "Accent Table", "Highbuoy", "Bar", "DJ Booth", "Desk"],
+       'Decoration' => ['Lantern', 'Pedestal', 'Mirror', 'Rug', 'Pillow', 'Vase', 'Directional Sign', 'Rope', 'Umbrella', 'Other'],
+       'Tableware' => ['Wine Glass', 'Champagne Glass', 'Regular Glass', 'Mug', 'Fork', 'Knife', 'Spoon', 'Serving Piece', 'Plate', 'Jar', 'Table Cloth', 'Runner', 'Napkin'],
+       'Production' => ['Stage', 'Dance Floor', 'Guard Rail', 'Tent', 'Pool Cover', 'Lighting', 'Screens', 'TV', 'Fog', 'Portable Restroom'],
+       'Kids' => ['Bounce House', 'Slide', 'Games', 'Concession Stand'],
+       'Service' => ['Bouncer', 'Security', 'Valet', 'Bartender', 'Barback', 'Waiter', 'Dancer', 'DJ', 'Musician']
+     } %>
 
-  <% ["furniture", "decoration", "tableware", "production", "kids", "service"].each do |c| %>
-    <%= form.label :subcategories %>
-    <%= form.check_box(:subcategory , {multiple: true}, c) %>
-    <%= form.label c.to_sym %>
-  <% end %>
 
+   <%= form.select :subcategory, grouped_options_for_select(subcategories) %>
+
+    </div>
+
+
+
+
+    <h1>Gallery</h1>
+      <% if @inventory_item.images.attached? %>
+      <% @inventory_item.images.each do |image| %>
+        <%= image_tag image.variant(resize: "100x100")%>
+        <%= link_to 'Remove', delete_image_attachment_inventory_item_url(image.signed_id),
+                   method: :delete,
+                   data: { confirm: 'Are you sure?' } %>
+      <%end %>
+      <% else %>
+        <%= image_tag "https://www.sibbaldtraining.com/wp-content/uploads/2017/05/dummy-profile-pic-male1-300x300.jpg" %>
+      <% end %>
+
+      <div class='field'>
+        <%= form.label "Gallery"%>
+        <%= form.file_field :images, multiple: true%>
+      </div>
 
 
 

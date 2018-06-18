@@ -7,6 +7,10 @@ gem 'devise'
 
 gem "simple_calendar", "~> 2.0"
 
+gem 'aws-sdk-s3', require: false
+gem 'image_processing', '~> 1.2'
+gem 'mini_magick'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.0'
 # Use sqlite3 as the database for Active Record

@@ -3,4 +3,9 @@ class InventoryItem < ApplicationRecord
 
   has_many :item_rentals
   has_many :booking_requests, through: :item_rentals
+  has_many_attached :images
+
+
+
+
 end

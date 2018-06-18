@@ -46,6 +46,19 @@
     <%= f.password_field :current_password, autocomplete: "off" %>
   </div>
 
+
+  <% if @user.avatar.attached? %>
+    <%= image_tag @user.avatar.variant(resize: "100x100") %>
+  <% else %>
+    <%= image_tag "https://www.sibbaldtraining.com/wp-content/uploads/2017/05/dummy-profile-pic-male1-300x300.jpg" %>
+  <% end %>
+
+  <div class='field'>
+    <%= f.label "Profile Picture"%>
+    <%= f.file_field :avatar%>
+  </div>
+
+
   <div class="actions">
     <%= f.submit "Update" %>
   </div>

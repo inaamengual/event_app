@@ -5,5 +5,6 @@ class Company < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :inventory_items
-
+  has_one_attached :avatar
+  has_many_attached :images
 end

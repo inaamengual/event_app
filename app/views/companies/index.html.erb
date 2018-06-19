@@ -6,13 +6,10 @@
   <div>
 
     <p>company image</p>
-    <p><%= company.company_name%></p>
-    <p><%= link_to "#{company.email}", company %></p>
-    <p>categories</p>
+    <p><%= link_to "#{company.company_name}", company %></p>
+    <p><%= company.category %></p>
     </br>
-    </br>
-    </br>
-    </br>
+
 
   </div>
   <% end %>

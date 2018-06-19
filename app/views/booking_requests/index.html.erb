@@ -1,40 +1,34 @@
 <% if current_user %>
-  <h1><%="#{current_user.first_name} #{current_user.last_name}'s BOOKING REQUESTS"%></h1>
+  <h1><%="#{current_user.first_name} #{current_user.last_name}'s Events"%></h1>
   <h4><%= link_to "New Event", new_booking_request_path %></h4>
 
-  <ul>
-    <% current_user.booking_requests.each do |booking| %>
-      <div>
-      <%= link_to "Event # #{booking.id}", booking %>
-      </br>
-      <%= "#{booking.location}" %>
-      <%= "#{booking.start_time}"  %>
-      </br>
-      </br>
-      </div>
-    <% end %>
-  </ul>
+  <table style="width:100%">
+    <tr>
+      <th>Event Id</th>
+      <th>Venue</th>
+      <th>Date</th>
+    </tr>
+    <% current_user.booking_requests.each do |event| %>
+    <tr>
+      <td><%= link_to "#{event.id}", booking_request_path(event) %></td>
+      <td><%= event.venue_name%></td>
+      <td><%= event.start_time%></td>
+    </tr>
+    <%end %>
+  </table>
+
+
 <%end %>
 
 
 
+
+
+
 <% if current_company %>
-
-
     <%   current_company.inventory_items.each do |item|  %>
       <% item.item_rentals.each do |rental| %>
         <%= link_to "#{rental.booking_request.venue_name}" , rental.booking_request%>
       <%end %>
     <% end %>
-
-
-
-    </table>
-
-
-
-
-
-
-
 <%end %>

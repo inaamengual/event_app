@@ -43,3 +43,4 @@ end
   # -functioning search bar
   # -error when deleting account
   # -error deleting images
+  # -company requests change to include calendar with requests in it

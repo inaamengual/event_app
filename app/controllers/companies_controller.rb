@@ -17,4 +17,13 @@ class CompaniesController < ApplicationController
 
   end
 
+  def search
+    return unless params[:term].present?
+
+    @results = []
+    [Artist, Album, Label].each do |model|
+    @results += model.search(params[:term])
+    end
+  end
+
 end

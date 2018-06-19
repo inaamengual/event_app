@@ -26,12 +26,14 @@ Rails.application.routes.draw do
     }
   root                    to: "users/sessions#new"
   # non-devise routes ####################################
-  resources :companies, only: [:index, :show, :edit, :update]
+  resources :companies, only: [:index, :show] do
+    resources :images, only: [:destroy]
+  end
   resources :inventory_items do
     member do
       delete :delete_image_attachment
-      end
     end
+  end
   resources :booking_requests
   resources :item_rentals
 

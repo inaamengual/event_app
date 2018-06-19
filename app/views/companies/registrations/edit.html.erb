@@ -75,9 +75,10 @@
 
 <h1>Gallery</h1>
   <% if current_company.images.attached? %>
-  <% current_company.images.each do |image| %>
-    <%= image_tag image.variant(resize: "100x100")%>
-  <%end %>
+    <% current_company.images.each do |image| %>
+      <%= image_tag image.variant(resize: "100x100")%>
+      <%= link_to "Delete", company_image_path(current_company, image), method: :delete %>
+    <%end %>
   <% else %>
     <%= image_tag "https://www.sibbaldtraining.com/wp-content/uploads/2017/05/dummy-profile-pic-male1-300x300.jpg" %>
   <% end %>

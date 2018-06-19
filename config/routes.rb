@@ -26,17 +26,23 @@ Rails.application.routes.draw do
     }
   root                    to: "users/sessions#new"
   # non-devise routes ####################################
-  resources :companies, only: [:index, :show, :edit, :update]
-  resources :inventory_items
+  resources :companies, only: [:index, :show] do
+    resources :images, only: [:destroy]
+  end
+  resources :inventory_items do
+    member do
+      delete :delete_image_attachment
+    end
+  end
   resources :booking_requests
   resources :item_rentals
+
 
 
 end
 
 
-  # -categories to work
   # -functioning search bar
-  # -images on items &
-  # -narrow down current companies events
-  # -approve/decline request
+  # -error when deleting account
+  # -error deleting images
+  # -company requests change to include calendar with requests in it

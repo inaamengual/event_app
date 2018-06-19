@@ -1,15 +1,18 @@
-<h1>ITEMS</h1>
+<h1>logo/profile picture<h1>
+<h1><%= current_company.company_name%></h1>
 
+<h4>GALLERY GOES HERE </h4>
 
+<h4>My Items</h4>
 <ul>
   <% current_company.inventory_items.each do |item| %>
   <div>
     <p>item image</p>
-    <%= link_to "#{item.name}", item %>
-    </br>
-    <%= "$#{item.price}" %>
-    <%= "#{item.quantity} available"  %>
-    <%= "More Info:#{item.description}"  %>
+    <p><%= link_to "#{item.name}", item %></p>
+    <p><%= "Subcategory: #{item.subcategory}" %></p>
+    <p><%= "$#{item.price}" %></p>
+    <p><%= "#{item.quantity} available"  %></p>
+    <p><%= "More Info:#{item.description}"  %></p>
     </br>
     </br>
   </div>

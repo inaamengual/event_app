@@ -1,7 +1,35 @@
+<h1><%="Requests"%></h1>
+<table style="width:100%">
+  <tr>
+    <th>Item ID</th>
+    <th>Item Name</th>
+    <th>Event Name</th>
+    <th>Date</th>
+    <th>Status</th>
+  </tr>
 
-<div class="">
+<% if current_user%>
+  <% @item_rentals.each do |rental| %>
+  <tr>
+    <td><%= link_to "#{rental.id}", item_rental_path(rental) %></td>
+    <td><%= link_to "#{rental.inventory_item.name}", item_rental_path(rental) %></td>
+    <td><%= link_to "#{rental.booking_request.venue_name}", item_rental_path(rental) %></td>
+    <td><%= link_to "#{rental.booking_request.start_time}", item_rental_path(rental) %></td>
+    <td><%= link_to "#{rental.status}", item_rental_path(rental) %></td>
+  </tr>
+  <% end %>
+</table>
+<% end%>
 
-  <% @item_rentals.each do |item| %>
-  <%= item.inspect %> <br>
-  <%end %>
-</div>
+<% if current_company%>
+  <% @item_rentals.each do |rental| %>
+  <tr>
+    <td><%= link_to "#{rental.id}", edit_item_rental_path(rental) %></td>
+    <td><%= link_to "#{rental.inventory_item.name}", edit_item_rental_path(rental) %></td>
+    <td><%= link_to "#{rental.booking_request.venue_name}", edit_item_rental_path(rental) %></td>
+    <td><%= link_to "#{rental.booking_request.start_time}", edit_item_rental_path(rental) %></td>
+    <td><%= link_to "#{rental.status}", edit_item_rental_path(rental) %></td>
+  </tr>
+  <% end %>
+</table>
+<% end%>

@@ -1,8 +1,16 @@
-<h1>THIS IS<%= @company.email %></h1>
+<h1><%= @company.company_name %></h1>
 
-<h2>ITEMS</h2>
+<h2>Items</h2>
 <ul>
   <% @company.inventory_items.each do |item| %>
-    <%= link_to "#{item.name}", item %></br>
+  <div>
+    <p><%= link_to "#{item.name}", item %></p>
+    <p><%= "Category: #{item.category}" %></p>
+    <p><%= "Subcategory: #{item.subcategory}" %></p>
+    <p><%= "#{item.quantity} available" %></p>
+    <p><%= "$ #{item.price}" %></p>
+    <p><%= item.description %></p>
+    </br>
+  </div>
   <% end %>
 </ul>

@@ -12,9 +12,10 @@
   <body>
     <header>
       <% if current_user %>
-        <p>Welcome, <%= current_user.email %>  |
+        <p>X LOGO  |
         <%= link_to "My Profile", edit_user_registration_path %>
         <%= link_to "Home", authenticated_user_root_path %>
+        <%= link_to "Create an Event", new_booking_request_path %>
         <%= link_to "My Events/Requests", booking_requests_path %>
         <%= link_to "Sign Out", destroy_user_session_path, method: :delete %> </p>
         <%= form_tag() do %>
@@ -22,10 +23,10 @@
           <%= submit_tag 'Search' %>
         <% end %>
       <% elsif current_company %>
-        <p>Welcome, <%= current_company.email %>  |
+          <p>X LOGO  |
         <%= link_to "Company Profile", edit_company_registration_path %>
         <%= link_to "Home", authenticated_company_root_path %>
-        <%= link_to "My Events",  booking_requests_path  %>
+        <%= link_to "My Requests",  item_rentals_path  %>
         <%= link_to "Create Item", new_inventory_item_path %>
         <%= link_to "Sign Out", destroy_company_session_path, method: :delete %> </p>
       <% end %>

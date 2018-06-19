@@ -13,6 +13,10 @@ class InventoryItemsController < ApplicationController
     @inventory_item = current_company.inventory_items.build
   end
 
+  def edit
+    @inventory_item = InventoryItem.find(params[:id])
+  end
+
   def create
 
       @item_rental = ItemRental.new
@@ -32,11 +36,17 @@ class InventoryItemsController < ApplicationController
     end
   end
 
+def delete_image_attachment
+  @image = ActiveStorage::Blob.find_signed(params[:id])
+  @image.purge_later
+  redirect_to inventory_item_path(@image.attachments.records.first.record.id)
+end
+
 
   private
 
   def inventory_item_params
-    params.require(:inventory_item).permit(:name, :quantity, :price, :category, :subcategory, :description)
+    params.require(:inventory_item).permit(:name, :quantity, :price, :category, :subcategory, :description, images:[])
   end
 
 end

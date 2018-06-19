@@ -30,6 +30,11 @@ class BookingRequestsController < ApplicationController
       end
     end
 
+    def destroy
+      @booking_request = BookingRequest.find(params[:id])
+      @booking_request.destroy
+      redirect_to booking_requests_path
+    end
 
     private
 

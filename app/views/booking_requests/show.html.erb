@@ -12,6 +12,7 @@
 <h4>Rentals</h4>
 
 
+
 <table style="width:100%">
   <tr>
     <th>Item ID</th>
@@ -21,6 +22,7 @@
     <th>Price</th>
   </tr>
   <% @booking_request.item_rentals.each do |item| %>
+  <% if Company.find_by(id: item.inventory_item.company_id)&.company_name %>
   <tr>
     <td><%= "#{item.id}" %></td>
     <td><%= "#{item.inventory_item.name}"%></td>
@@ -28,12 +30,22 @@
     <td><%= "#{item.status}"%></td>
     <td><%= "#{item.inventory_item.price}"%></td>
   </tr>
+  <% else %>
   <%end %>
+
+  <% end %>
   <tr>
     <td>Total</td>
     <td></td>
     <td></td>
     <td></td>
-    <td><%= "#{@booking_request.total}"%></td>
+    <td><%= @booking_request.total%></td>
+
   </tr>
 </table>
+
+
+
+
+
+<%= link_to "Delete Event", @booking_request, method: :delete, data: {confirm: "You sure?"} %>

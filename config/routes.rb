@@ -30,19 +30,12 @@ Rails.application.routes.draw do
     resources :images, only: [:destroy]
   end
   resources :inventory_items do
-    member do
-      delete :delete_image_attachment
-    end
+    resources :images, only: [:destroy]
   end
   resources :booking_requests
   resources :item_rentals
 
+  resources :searches, only: [:create]
 
 
 end
-
-
-  # -functioning search bar
-  # -error when deleting account
-  # -error deleting images
-  # -company requests change to include calendar with requests in it

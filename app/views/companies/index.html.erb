@@ -5,7 +5,13 @@
   <% @companies.each do |company| %>
   <div>
 
-    <p>company image</p>
+
+
+    <% if company.avatar.attached? %>
+      <%= image_tag company.avatar.variant(resize: "100x100") %>
+    <% else %>
+      <%= image_tag "https://www.sibbaldtraining.com/wp-content/uploads/2017/05/dummy-profile-pic-male1-300x300.jpg" %>
+      <%end%>
     <p><%= link_to "#{company.company_name}", company %></p>
     <p><%= company.category %></p>
     </br>

@@ -18,9 +18,15 @@
         <%= link_to "Create an Event", new_booking_request_path %>
         <%= link_to "My Events/Requests", booking_requests_path %>
         <%= link_to "Sign Out", destroy_user_session_path, method: :delete %> </p>
-        <%= form_tag() do %>
-          <%= text_field_tag :company %>
+        <%= form_tag(searches_path) do %>
+
+          <%= search_field_tag :term %>
           <%= submit_tag 'Search' %>
+        <% end %>
+        <% if @results.nil? %>
+          Go ahead and search for something!
+        <% elsif @results.empty? %>
+          Try your search again.
         <% end %>
       <% elsif current_company %>
           <p>X LOGO  |

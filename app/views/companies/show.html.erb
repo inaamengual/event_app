@@ -1,9 +1,37 @@
+<% if @company.avatar.attached? %>
+  <%= image_tag @company.avatar.variant(resize: "100x100") %>
+<% else %>
+  <%= image_tag "https://www.sibbaldtraining.com/wp-content/uploads/2017/05/dummy-profile-pic-male1-300x300.jpg" %>
+<% end %>
 <h1><%= @company.company_name %></h1>
+
+
+
+<h1>Gallery</h1>
+<% if @company.images.attached? %>
+  <% @company.images.each do |image| %>
+    <%= image_tag image.variant(resize: "400x400")%>
+  <%end %>
+<% else %>
+  <%= image_tag "https://www.sibbaldtraining.com/wp-content/uploads/2017/05/dummy-profile-pic-male1-300x300.jpg" %>
+<% end %>
+
+
 
 <h2>Items</h2>
 <ul>
   <% @company.inventory_items.each do |item| %>
   <div>
+
+    <% if item.images.attached? %>
+    <% item.images.each do |image| %>
+      <%= image_tag image.variant(resize: "200x200")%>
+    <%end %>
+    <% else %>
+      <%= image_tag "https://www.sibbaldtraining.com/wp-content/uploads/2017/05/dummy-profile-pic-male1-300x300.jpg" %>
+    <% end %>
+
+
     <p><%= link_to "#{item.name}", item %></p>
     <p><%= "Category: #{item.category}" %></p>
     <p><%= "Subcategory: #{item.subcategory}" %></p>

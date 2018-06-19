@@ -20,7 +20,7 @@ class ItemRentalsController < ApplicationController
     booking =
     @item_rental = ItemRental.new(item_rental_params)
     if @item_rental.save
-      redirect_to item_rentals_path
+      redirect_to item_rental_path
     else
       render :new
     end

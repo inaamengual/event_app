@@ -1,13 +1,45 @@
-<h1>logo/profile picture<h1>
+<% if current_company.avatar.attached? %>
+  <%= image_tag current_company.avatar.variant(resize: "100x100") %>
+<% else %>
+  <%= image_tag "https://www.sibbaldtraining.com/wp-content/uploads/2017/05/dummy-profile-pic-male1-300x300.jpg" %>
+<% end %>
 <h1><%= current_company.company_name%></h1>
 
-<h4>GALLERY GOES HERE </h4>
+<h2>Gallery</h2>
+<% if current_company.images.attached? %>
+  <% current_company.images.each do |image| %>
+    <%= image_tag image.variant(resize: "400x400")%>
+  <%end %>
+<% else %>
+  <%= image_tag "https://www.sibbaldtraining.com/wp-content/uploads/2017/05/dummy-profile-pic-male1-300x300.jpg" %>
+<% end %>
 
-<h4>My Items</h4>
+<h2>My Items</h2>
 <ul>
   <% current_company.inventory_items.each do |item| %>
   <div>
-    <p>item image</p>
+
+
+
+
+    <% if item.images.attached? %>
+    <% item.images.each do |image| %>
+      <%= image_tag image.variant(resize: "100x100")%>
+
+
+
+
+
+
+    <%end %>
+    <% else %>
+      <%= image_tag "https://www.sibbaldtraining.com/wp-content/uploads/2017/05/dummy-profile-pic-male1-300x300.jpg" %>
+    <% end %>
+
+
+
+
+
     <p><%= link_to "#{item.name}", item %></p>
     <p><%= "Subcategory: #{item.subcategory}" %></p>
     <p><%= "$#{item.price}" %></p>

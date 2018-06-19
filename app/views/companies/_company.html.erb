@@ -1,0 +1,7 @@
+<div>
+  <% if company.avatar.attached?  %>
+  <%= image_tag company.avatar.variant(resize: "100x100") %>
+  <% end %>
+    <p><%= link_to "#{company.company_name}", company %></p>
+    <p><%= company.category %></p>
+</div>

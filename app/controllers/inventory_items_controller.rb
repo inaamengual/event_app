@@ -32,9 +32,16 @@ class InventoryItemsController < ApplicationController
     @inventory_item = InventoryItem.find(params[:id])
     if @inventory_item.update(inventory_item_params)
       redirect_to @inventory_item
-
     end
   end
+
+  def destroy
+    @inventory_item = InventoryItem.find(params[:id])
+    @inventory_item.destroy
+    redirect_to @inventory_item
+  end
+
+
 
 def delete_image_attachment
   @image = ActiveStorage::Blob.find_signed(params[:id])

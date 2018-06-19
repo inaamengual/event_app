@@ -36,6 +36,7 @@ Rails.application.routes.draw do
   end
   resources :booking_requests
   resources :item_rentals
+  resources :searches, only: [:create]
 
 
 

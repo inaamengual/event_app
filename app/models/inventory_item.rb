@@ -1,4 +1,6 @@
 class InventoryItem < ApplicationRecord
+  include Searchable
+
   belongs_to :company
 
   has_many :item_rentals
@@ -6,5 +8,7 @@ class InventoryItem < ApplicationRecord
   has_many_attached :images
 
 
-
+  def self.searchable_column
+    "name"
+  end
 end

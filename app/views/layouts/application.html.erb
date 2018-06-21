@@ -4,40 +4,90 @@
     <title>EventApp</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
   </head>
-
   <body>
     <header>
       <% if current_user %>
-        <p>X LOGO  |
-        <%= link_to "My Profile", edit_user_registration_path %>
-        <%= link_to "Home", authenticated_user_root_path %>
-        <%= link_to "Create an Event", new_booking_request_path %>
-        <%= link_to "My Events/Requests", booking_requests_path %>
-        <%= link_to "Sign Out", destroy_user_session_path, method: :delete %> </p>
-        <%= form_tag(searches_path) do %>
-
-          <%= search_field_tag :term %>
-          <%= submit_tag 'Search' %>
-        <% end %>
-        <% if @results.nil? %>
-          Go ahead and search for something!
-        <% elsif @results.empty? %>
-          Try your search again.
-        <% end %>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+          <a class="navbar-brand" href="#">XLOGO</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item">
+                <%= link_to "My Profile", edit_user_registration_path, class: "nav-link"  %>
+              </li>
+              <li class="nav-item">
+                <%= link_to "Home", authenticated_user_root_path, class: "nav-link"  %>
+              </li>
+              <li class="nav-item">
+                <%= link_to "Create an Event", new_booking_request_path, class: "nav-link" %>
+              </li>
+              <li class="nav-item">
+                <%= link_to "My Events/Requests", booking_requests_path, class: "nav-link" %>
+              </li>
+              <li class="nav-item">
+                <%= link_to "Sign Out", destroy_user_session_path, class: "nav-link disabled", method: :delete %>
+              </li>
+            </ul>
+          </div>
+        </nav>
+        <div class="container-fluid">
+          <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Categories <i class="fas fa-list"></i></button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <%= form_tag(searches_path, {class: "form-inline my-2 my-lg-0"}) do %>
+              <% ["Furniture", "Decoration", "Tableware", "Production", "Kids", "Service"].each do |cat| %>
+                <div class="dropdown-item">
+                  <%= label_tag("category[#{cat}]", cat, {class: 'btn active'}) %>
+                  <%= check_box_tag("category[#{cat}]", {class:'checkbox'}) %>
+                </div>
+              <% end %>
+            </div>
+          </div>
+          <%= search_field_tag( :term, "Try \"#{Company.all.shuffle.first.company_name}\"", {class:"form-control mr-sm-2"}) %>
+          <%= submit_tag('Search')%>
+              <% if @results.nil? %>
+              <% elsif @results.empty? %>
+                Try your search again.
+              <% end %>
+          <% end %>
+        </div>
       <% elsif current_company %>
-          <p>X LOGO  |
-        <%= link_to "Company Profile", edit_company_registration_path %>
-        <%= link_to "Home", authenticated_company_root_path %>
-        <%= link_to "My Requests",  item_rentals_path  %>
-        <%= link_to "Create Item", new_inventory_item_path %>
-        <%= link_to "Sign Out", destroy_company_session_path, method: :delete %> </p>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+          <a class="navbar-brand" href="#">XLOGO</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item">
+                <%= link_to "Company Profile", edit_company_registration_path, class: "nav-link" %>
+              </li>
+              <li class="nav-item">
+                <%= link_to "Home", authenticated_company_root_path, class: "nav-link" %>
+              </li>
+              <li class="nav-item">
+                <%= link_to "My Requests",  item_rentals_path, class: "nav-link"  %>
+              </li>
+              <li class="nav-item">
+                <%= link_to "Create Item", new_inventory_item_path, class: "nav-link" %>
+              </li>
+              <li class="nav-item">
+                <%= link_to "Sign Out", destroy_company_session_path, class: "nav-link", method: :delete %>
+              </li>
+            </ul>
+          </div>
+        </nav>
       <% end %>
-
-
     </header>
     <%= yield %>
   </body>

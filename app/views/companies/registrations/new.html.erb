@@ -26,15 +26,12 @@
     <%= f.number_field :service_distance, autofocus: true, autocomplete: "Service Distance" %>
   </div>
 
-  <% ["furniture", "decoration", "tableware", "production", "kids", "service"].each do |c| %>
-    <%= f.label :categories %>
-    <%= f.check_box(:category , {multiple: true}, c) %>
-    <%= f.label c.to_sym %>
-  <% end %>
 
 
-
-
+  <div class="">
+    <%= f.label :category %><br />
+    <%= f.select :category, options_for_select(Company.categories) %>
+  </div>
 
 
   <div class="field">

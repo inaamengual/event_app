@@ -1,74 +1,42 @@
-<h1>Make an item</h1>
-
-<%= form_with(model: @inventory_item, local: true) do |form| %>
-<% if @inventory_item.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@inventory_item.errors.count, "error") %> prohibited this picture from being saved:</h2>
-
-      <ul>
-      <% @inventory_item.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
+<div class= "form">
+  <h3>New Item</h3>
+  <%= form_with(model: @inventory_item, local: true) do |form| %>
+    <% if @inventory_item.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@inventory_item.errors.count, "error") %> prohibited this picture from being saved:</h2>
+        <ul>
+          <% @inventory_item.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
       </ul>
+      </div>
+    <% end %>
+    <div class="field">
+      <%= form.label :name %>
+      <%= form.text_field :name %>
     </div>
-  <% end %>
-
-
-
-
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-  </div>
-  <div class="field">
-    <%= form.label :quantity %>
-    <%= form.number_field :quantity %>
-  </div>
-  <div class="field">
-    <%= form.label :price %>
-    <%= form.number_field :price %>
-  </div>
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_field :description %>
-  </div>
-
-
-  <div class="">
-     <% subcategories = {
-       'Furniture'      => ["Dinning Chair", "Arm Chair", "Sofa", "Loveseat", "Ottoman", "Bar Stool", "Bench", "Cocktail Table", "Coffee Table", "Dinning Table", "Side Table", "Accent Table", "Highbuoy", "Bar", "DJ Booth", "Desk"],
-       'Decoration' => ['Lantern', 'Pedestal', 'Mirror', 'Rug', 'Pillow', 'Vase', 'Directional Sign', 'Rope', 'Umbrella', 'Other'],
-       'Tableware' => ['Wine Glass', 'Champagne Glass', 'Regular Glass', 'Mug', 'Fork', 'Knife', 'Spoon', 'Serving Piece', 'Plate', 'Jar', 'Table Cloth', 'Runner', 'Napkin'],
-       'Production' => ['Stage', 'Dance Floor', 'Guard Rail', 'Tent', 'Pool Cover', 'Lighting', 'Screens', 'TV', 'Fog', 'Portable Restroom'],
-       'Kids' => ['Bounce House', 'Slide', 'Games', 'Concession Stand'],
-       'Service' => ['Bouncer', 'Security', 'Valet', 'Bartender', 'Barback', 'Waiter', 'Dancer', 'DJ', 'Musician']
-     } %>
-
-
-   <%= form.select :subcategory, grouped_options_for_select(subcategories) %>
-
-
-
-
-
+    <div class="field">
+      <%= form.label :quantity %>
+      <%= form.number_field :quantity %>
     </div>
-  </div>
-
-
-
-  <h1>Gallery</h1>
-
+    <div class="field">
+      <%= form.label :price %>
+      <%= form.number_field :price %>
+    </div>
+    <div class="field">
+      <%= form.label :description %>
+      <%= form.text_field :description %>
+    </div>
+    <div class="">
+      <%= form.select :subcategory, grouped_options_for_select(@categories) %>
+    </div>
+    <h4>Images</h4>
     <div class='field'>
       <%= form.label "Gallery"%>
       <%= form.file_field :images, multiple: true%>
     </div>
-
-
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-
-
-
-<% end %>
+    <div class="actions">
+      <%= form.submit %>
+    </div>
+  <% end %>
+</div>

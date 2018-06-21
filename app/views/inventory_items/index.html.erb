@@ -1,52 +1,41 @@
-<% if current_company.avatar.attached? %>
-  <%= image_tag current_company.avatar.variant(resize: "100x100") %>
-<% else %>
-  <%= image_tag "https://www.sibbaldtraining.com/wp-content/uploads/2017/05/dummy-profile-pic-male1-300x300.jpg" %>
-<% end %>
-<h1><%= current_company.company_name%></h1>
-
-<h2>Gallery</h2>
-<% if current_company.images.attached? %>
-  <% current_company.images.each do |image| %>
-    <%= image_tag image.variant(resize: "400x400")%>
-  <%end %>
-<% else %>
-  <%= image_tag "https://www.sibbaldtraining.com/wp-content/uploads/2017/05/dummy-profile-pic-male1-300x300.jpg" %>
-<% end %>
-
-<h2>My Items</h2>
-<ul>
-  <% current_company.inventory_items.each do |item| %>
-  <div>
-
-
-
-
-    <% if item.images.attached? %>
-    <% item.images.each do |image| %>
-      <%= image_tag image.variant(resize: "100x100")%>
-
-
-
-
-
-
-    <%end %>
-    <% else %>
-      <%= image_tag "https://www.sibbaldtraining.com/wp-content/uploads/2017/05/dummy-profile-pic-male1-300x300.jpg" %>
-    <% end %>
-
-
-
-
-
-    <p><%= link_to "#{item.name}", item %></p>
-    <p><%= "Subcategory: #{item.subcategory}" %></p>
-    <p><%= "$#{item.price}" %></p>
-    <p><%= "#{item.quantity} available"  %></p>
-    <p><%= "More Info:#{item.description}"  %></p>
-    </br>
-    </br>
-  </div>
+<div class= 'welcome-header'>
+  <% if current_company.avatar.attached? %>
+    <%= image_tag current_company.avatar.variant(resize: "100x100")  %>
+  <% else %>
+    <%= image_tag("party-avatar.png", {size: '100', class: 'img-thumbnail'})  %>
   <% end %>
-</ul>
+  <%= "Welcome #{current_company.company_name}"%>
+</div>
+
+<div class= 'gallery'>
+  <% if current_company.images.attached? %>
+    <h2>GALLERY</h2>
+    <% current_company.images.each do |image| %>
+      <%= image_tag image.variant(resize: "400x400")%>
+    <%end %>
+  <% end %>
+</div>
+
+<% if @inventory_items.any? %>
+  <div class= 'flashcard-holder'>
+    <h2>MY ITEMS</h2>
+    <div class="container">
+      <div class="row">
+      <% current_company.inventory_items.each do |item| %>
+        <div class="flashcard">
+          <% if item.images.attached? %>
+            <% item.images.each do |image| %>
+              <%= image_tag image.variant(resize: "100x100")%>
+            <%end %>
+          <% else %>
+              <%= image_tag("party-item.png", {size: '300'})  %>
+          <% end %>
+          <h5 class= "flashcard"><%= link_to "#{item.name}", item %></h5>
+          <p><%= item.subcategory.upcase %></p>
+          <p><%= "$#{item.price} daily | #{item.quantity} available"%></p>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+<% end %>

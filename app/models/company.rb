@@ -1,5 +1,4 @@
 class Company < ApplicationRecord
-  include Searchable
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -10,7 +9,19 @@ class Company < ApplicationRecord
   has_many_attached :images, dependent: :destroy
 
 
-  def self.searchable_column
-    "company_name"
+  def self.search(term:, category:)
+    return all if term.empty? && category.empty?
+    return where("company_name like :term", term: "%#{term}%") if term.present? && category.empty?
+    return where(category: category) if term.empty? && category.any?
+    return where("company_name like :term", term: "%#{term}%").where(category: category) if term.present? && category.any?
   end
+
+
+
+
+  def self.categories
+    ["furniture", "decoration", "tableware", "production", "kids", "service"]
+
+  end
+
 end

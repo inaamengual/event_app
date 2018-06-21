@@ -1,6 +1,7 @@
-<h1><%="Item Requests"%></h1>
-<table style="width:100%">
+<h3><%="My Item Requests"%></h3>
+<table class= "table">
   <tr>
+    <th>Rental ID</th>
     <th>Item ID</th>
     <th>Item Name</th>
     <th>Event Name</th>
@@ -12,10 +13,11 @@
   <% @item_rentals.each do |rental| %>
   <tr>
     <td><%= link_to "#{rental.id}", item_rental_path(rental) %></td>
-    <td><%= link_to "#{rental.inventory_item.name}", item_rental_path(rental) %></td>
-    <td><%= link_to "#{rental.booking_request.venue_name}", item_rental_path(rental) %></td>
-    <td><%= link_to "#{rental.booking_request.start_time}", item_rental_path(rental) %></td>
-    <td><%= link_to "#{rental.status}", item_rental_path(rental) %></td>
+    <td><%= rental.inventory_item.id %></td>
+    <td><%= rental.inventory_item.name %></td>
+    <td><%= rental.booking_request.venue_name %></td>
+    <td><%= rental.booking_request.start_time %></td>
+    <td><%= rental.status %></td>
   </tr>
   <% end %>
 </table>
@@ -25,10 +27,11 @@
   <% @item_rentals.each do |rental| %>
   <tr>
     <td><%= link_to "#{rental.id}", edit_item_rental_path(rental) %></td>
-    <td><%= link_to "#{rental.inventory_item.name}", edit_item_rental_path(rental) %></td>
-    <td><%= link_to "#{rental.booking_request.venue_name}", edit_item_rental_path(rental) %></td>
-    <td><%= link_to "#{rental.booking_request.start_time}", edit_item_rental_path(rental) %></td>
-    <td><%= link_to "#{rental.status}", edit_item_rental_path(rental) %></td>
+    <td><%= rental.inventory_item.id %></td>
+    <td><%= rental.inventory_item.name %></td>
+    <td><%= rental.booking_request.venue_name %></td>
+    <td><%= rental.booking_request.start_time %></td>
+    <td><%= rental.status %></td>
   </tr>
   <% end %>
 </table>

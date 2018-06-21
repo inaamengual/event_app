@@ -1,8 +1,10 @@
 <% if current_user %>
-  <h1><%="#{current_user.first_name} #{current_user.last_name}'s Events"%></h1>
-  <h4><%= link_to "New Event", new_booking_request_path %></h4>
+  <div>
+    <h3><%="My Events"%></h3>
+    <button><%= link_to "New Event", new_booking_request_path %></button>
+  </div>
 
-  <table style="width:100%">
+  <table class= "table">
     <tr>
       <th>Event Id</th>
       <th>Venue</th>
@@ -16,19 +18,4 @@
     </tr>
     <%end %>
   </table>
-
-
-<%end %>
-
-
-
-
-
-
-<% if current_company %>
-    <%   current_company.inventory_items.each do |item|  %>
-      <% item.item_rentals.each do |rental| %>
-        <%= link_to "#{rental.booking_request.venue_name}" , rental.booking_request%>
-      <%end %>
-    <% end %>
 <%end %>

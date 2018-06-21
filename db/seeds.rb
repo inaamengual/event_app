@@ -6,6 +6,11 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+def seed_avatar(file_name)
+  File.open(File.join(Rails.root, "/app/assets/images/seed/#{file_name}.png"))
+end
+
+
 User.create(first_name: 'Andreina', last_name: 'Amengual', phone_number: '954-294-4242', email: 'inaamengual@gmail.com', password: '123456')
 User.create(first_name: 'Joel', last_name: 'Gamez', phone_number: '954-294-4242', email: 'joelgamez@gmail.com', password: '123456')
 User.create(first_name: 'Angel', last_name: 'Melendez', phone_number: '954-294-4242', email: 'angelmelendez@gmail.com', password: '123456')
@@ -43,3 +48,5 @@ Company.create(company_name: 'Mimi\'s Parties', address: '67 Fun St.', category:
 
 
 Company.find(2).inventory_items.create(name: 'Blue Panther Chair', category: 'Furniture', subcategory: 'Arm Chair', price: '350', quantity: '6', description: 'Beautiful arm chair to set the mood in your party')
+
+Company.find(2).(avatar: )

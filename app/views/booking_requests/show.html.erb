@@ -1,24 +1,33 @@
-<h2><%= "Event ##{@booking_request.id}" %></h2>
-
-
-<%=  "Venue Name: #{@booking_request.venue_name}"%>
-</br>
-<%=  "Location: #{@booking_request.location}"%>
-</br>
-<%=  "Date: #{@booking_request.start_time} to #{@booking_request.end_time}"%>
-</br>
-<%=  "Comments: #{@booking_request.comment}"%>
+<h3><%= "Event # #{@booking_request.id}" %></h3>
+<table class= "table">
+  <tbody>
+    <tr>
+      <th>Venue Name</th>
+      <td><%= @booking_request.venue_name %></td>
+    </tr>
+    <tr>
+      <th>Location</th>
+      <td><%= @booking_request.location %></td>
+    </tr>
+    <tr>
+      <th>Date</th>
+      <td><%= @booking_request.start_time %></td>
+    </tr>
+    <tr>
+      <th>Comments</th>
+      <td><%= @booking_request.comment %></td>
+    </tr>
+  </tbody>
+</table>
 
 <h4>Rentals</h4>
-
-
-
-<table style="width:100%">
+<table class="table">
   <tr>
-    <th>Item ID</th>
+    <th>Rental ID</th>
     <th>Name</th>
     <th>Company</th>
     <th>Status</th>
+    <th>Cancel</th>
     <th>Price</th>
   </tr>
   <% @booking_request.item_rentals.each do |item| %>
@@ -28,24 +37,21 @@
     <td><%= "#{item.inventory_item.name}"%></td>
     <td><%= "#{Company.find(item.inventory_item.company_id).company_name}"%></td>
     <td><%= "#{item.status}"%></td>
+    <td>DESTROY LINK</td>
     <td><%= "#{item.inventory_item.price}"%></td>
   </tr>
   <% else %>
   <%end %>
-
   <% end %>
   <tr>
     <td>Total</td>
     <td></td>
     <td></td>
     <td></td>
+    <td></td>
     <td><%= @booking_request.total%></td>
-
   </tr>
 </table>
 
 
-
-
-
-<%= link_to "Delete Event", @booking_request, method: :delete, data: {confirm: "You sure?"} %>
+<button><%= link_to "Delete Event", @booking_request, method: :delete, data: {confirm: "You sure?"} %></button>

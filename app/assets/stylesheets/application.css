@@ -14,3 +14,47 @@
  *= require_self
  *= require simple_calendar
  */
+
+
+#thumbnail {
+  max-height: 500px;
+  max-width: 500px;
+  border: .5px solid grey;
+  border-radius: 10px 25px;
+}
+
+.flashcard-holder{
+
+}
+
+
+.flashcard{
+  margin: 10px;
+  padding: 10px;
+  max-width: 500px;
+  background-color: blue;
+  
+}
+
+.flashcard *{
+
+  padding: -90px;
+
+}
+
+.flashcard img{
+  border-radius: 3px;
+
+}
+
+.gallery{
+
+}
+
+.table{
+
+}
+
+.form{
+
+}

@@ -7,10 +7,12 @@ class InventoryItemsController < ApplicationController
 
   def index
     @inventory_item = InventoryItem.all
+    @inventory_items = current_company.inventory_items
   end
 
   def new
     @inventory_item = current_company.inventory_items.build
+    @categories     = InventoryItem.categories
   end
 
   def edit
@@ -19,7 +21,7 @@ class InventoryItemsController < ApplicationController
 
   def create
 
-      @item_rental = ItemRental.new
+    @item_rental = ItemRental.new
     @inventory_item = current_company.inventory_items.build(inventory_item_params)
     if @inventory_item.save
       redirect_to @inventory_item

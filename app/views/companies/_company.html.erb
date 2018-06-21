@@ -1,7 +1,13 @@
-<div>
-  <% if company.avatar.attached?  %>
-  <%= image_tag company.avatar.variant(resize: "100x100") %>
-  <% end %>
-    <p><%= link_to "#{company.company_name}", company %></p>
-    <p><%= company.category %></p>
+<div class="flashcard-holder">
+  <div class="row">
+    <div class="flashcard">
+      <% if company.avatar.attached? %>
+        <%= image_tag company.avatar.variant(resize: "100x100") %>
+      <% else %>
+        <%= image_tag "https://www.sibbaldtraining.com/wp-content/uploads/2017/05/dummy-profile-pic-male1-300x300.jpg" %>
+        <%end%>
+      <p><%= company.category.upcase %></p>
+      <h5><%= link_to "#{company.company_name.upcase}", company %></h5>
+    </div>
+  </div>
 </div>

@@ -1,7 +1,20 @@
-<h1><%= "Request: #{@item_rental.id}" %></h1>
+<div>
+  <h3><%="Request # #{@item_rental.id}"%></h3>
+</div>
 
-<p>Item ID: <%= "#{@item_rental.inventory_item.id}" %></p>
-<p>Item Name: <%= "#{@item_rental.inventory_item.name}" %></p>
-<p>Event Name: <%= "#{@item_rental.booking_request.venue_name}"%></p>
-<p>Date: <%= "#{@item_rental.booking_request.start_time}" %></p>
-<p>Status: <%= "#{@item_rental.status}" %></p>
+<table class= "table">
+  <tr>
+    <th>Item ID</th>
+    <th>Item Name</th>
+    <th>Event Name</th>
+    <th>Date</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td><%= @item_rental.inventory_item.id %></td>
+    <td><%= @item_rental.inventory_item.name %></td>
+    <td><%= @item_rental.booking_request.venue_name%></td>
+    <td><%= @item_rental.booking_request.start_time %></td>
+    <td><%= @item_rental.status %></td>
+  </tr>
+</table>

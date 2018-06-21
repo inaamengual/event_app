@@ -1,54 +1,45 @@
-<h2><%= @inventory_item.name %></h2>
-
-<% if @inventory_item.images.attached? %>
-  <% @inventory_item.images.each do |image| %>
-    <%= image_tag image.variant(resize: "400x400")%>
-  <%end %>
-  <% else %>
-    <%= image_tag "https://www.sibbaldtraining.com/wp-content/uploads/2017/05/dummy-profile-pic-male1-300x300.jpg" %>
-<% end %>
-
-
-<p><%= "#{@inventory_item.quantity} Available"%></p>
-<p><%= "$#{@inventory_item.price}"%></p>
-<p><%= "Category: #{@inventory_item.category} "%></p>
-<p><%= "Subcategory: #{@inventory_item.subcategory} "%></p>
-<p><%= "More Info: #{@inventory_item.description}"%></p>
-
-<% if current_company %>
-  <%= link_to 'Edit', edit_inventory_item_path %>
-<%end %>
-
-
-
-<%= month_calendar events: @inventory_item.booking_requests do |date, bookings| %>
-    <%= date %>
-    <% bookings.each do |booking| %>
-      <% if booking.item_rentals.any?{|x| x.status == 'approved'} %>
-          <p>BOOKED</p>
-      <% end %>
-    <% end %>
-
-
-    <% if current_user %>
-      <% current_user.booking_requests.each do |event|  %>
-          <% if event.start_time.to_s.include?(date.to_s) %>
-            <p>My event: <strong><%= event.venue_name %></strong></p>
-
-
-            <%= form_with(model: @item_rental, local: true) do |form| %>
-              <div class="field">
-                <%= form.hidden_field :booking_request_id, :value => event.id.to_i  %>
-                <%= form.hidden_field :inventory_item_id, :value => @inventory_item.id.to_i  %>
-              <div class="actions">
-                <%= form.submit %>
-              </div>
-            <%end %>
-
-
+<div class="container-fluids">
+  <div class="row">
+    <div class="col">
+      <% if @inventory_item.images.attached? %>
+        <% @inventory_item.images.each do |image| %>
+          <%= image_tag image.variant(resize: "400x400")%>
         <%end %>
+      <% else %>
+          <%= image_tag "https://www.sibbaldtraining.com/wp-content/uploads/2017/05/dummy-profile-pic-male1-300x300.jpg" %>
+      <% end %>
+      <h6><%= "#{@inventory_item.category.upcase} • #{@inventory_item.subcategory.upcase}"%></h6>
+      <h3><%= @inventory_item.name %></h3>
+      <p><%= "$#{@inventory_item.price} daily | #{@inventory_item.quantity} available"%></p>
+      <p><%= @inventory_item.description%></p>
+      <% if current_company %>
+        <button><%= link_to 'Edit', edit_inventory_item_path %></button>
       <%end %>
-    <% end %>
-
-
-<% end %>
+    </div>
+    <div class="col">
+      <%= month_calendar events: @inventory_item.booking_requests do |date, bookings| %>
+          <%= date %>
+          <% bookings.each do |booking| %>
+            <% if booking.item_rentals.any?{|x| x.status == 'approved'} %>
+                <p id= "booked">BOOKED</p>
+            <% end %>
+          <% end %>
+          <% if current_user %>
+            <% current_user.booking_requests.each do |event|  %>
+                <% if event.start_time.to_s.include?(date.to_s) %>
+                  <p>My event: <strong><%= event.venue_name %></strong></p>
+                  <%= form_with(model: @item_rental, local: true) do |form| %>
+                    <div class="field">
+                      <%= form.hidden_field :booking_request_id, :value => event.id.to_i  %>
+                      <%= form.hidden_field :inventory_item_id, :value => @inventory_item.id.to_i  %>
+                    <div class="actions">
+                      <%= form.submit %>
+                    </div>
+                  <%end %>
+              <%end %>
+            <%end %>
+          <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>

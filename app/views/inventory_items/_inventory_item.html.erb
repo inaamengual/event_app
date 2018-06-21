@@ -1,0 +1,13 @@
+<div class="flashcard-holder">
+  <div class="row">
+    <div class="flashcard">
+      <% if inventory_item.company.avatar.attached? %>
+        <%= image_tag inventory_item.company.avatar.variant(resize: "100x100") %>
+      <% else %>
+        <%= image_tag "https://www.sibbaldtraining.com/wp-content/uploads/2017/05/dummy-profile-pic-male1-300x300.jpg" %>
+        <%end%>
+      <p><%= inventory_item.company.category.upcase %></p>
+      <h5><%= link_to "#{inventory_item.company.company_name.upcase}", inventory_item.company %></h5>
+    </div>
+  </div>
+</div>

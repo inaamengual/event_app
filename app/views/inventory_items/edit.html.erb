@@ -24,7 +24,7 @@
       <% if @inventory_item.images.attached? %>
         <% @inventory_item.images.each do |image| %>
           <%= image_tag image.variant(resize: "100x100")%>
-          <%= link_to 'Delete', inventory_item_image_path(current_company, image),method: :delete, data: { confirm: 'Are you sure?' } %>
+          <%= link_to 'Delete', inventory_item_image_path(@inventory_item, image),method: :delete, data: { confirm: 'Are you sure?' } %>
         <%end %>
       <% else %>
         <%= image_tag "https://www.sibbaldtraining.com/wp-content/uploads/2017/05/dummy-profile-pic-male1-300x300.jpg" %>

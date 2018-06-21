@@ -28,7 +28,7 @@
       <%= form.text_field :description %>
     </div>
     <div class="">
-      <%= form.select :subcategory, grouped_options_for_select(@categories) %>
+      <%= form.select :subcategory, grouped_options_for_select(InventoryItem.categories) %>
     </div>
     <h4>Images</h4>
     <div class='field'>

@@ -18,15 +18,7 @@
       <%= form.text_field :description, value: @inventory_item.description  %>
     </div>
     <div class="">
-      <% subcategories = {
-      'Furniture'      => ["Dinning Chair", "Arm Chair", "Sofa", "Loveseat", "Ottoman", "Bar Stool", "Bench", "Cocktail Table", "Coffee Table", "Dinning Table", "Side Table", "Accent Table", "Highbuoy", "Bar", "DJ Booth", "Desk"],
-      'Decoration' => ['Lantern', 'Pedestal', 'Mirror', 'Rug', 'Pillow', 'Vase', 'Directional Sign', 'Rope', 'Umbrella', 'Other'],
-      'Tableware' => ['Wine Glass', 'Champagne Glass', 'Regular Glass', 'Mug', 'Fork', 'Knife', 'Spoon', 'Serving Piece', 'Plate', 'Jar', 'Table Cloth', 'Runner', 'Napkin'],
-      'Production' => ['Stage', 'Dance Floor', 'Guard Rail', 'Tent', 'Pool Cover', 'Lighting', 'Screens', 'TV', 'Fog', 'Portable Restroom'],
-      'Kids' => ['Bounce House', 'Slide', 'Games', 'Concession Stand'],
-      'Service' => ['Bouncer', 'Security', 'Valet', 'Bartender', 'Barback', 'Waiter', 'Dancer', 'DJ', 'Musician']
-      } %>
-      <%= form.select :subcategory, grouped_options_for_select(subcategories) %>
+      <%= form.select :subcategory, grouped_options_for_select(InventoryItem.categories) %>
     </div>
     <h5>Images</h5>
       <% if @inventory_item.images.attached? %>

@@ -27,7 +27,7 @@
           <%= link_to 'Delete', inventory_item_image_path(@inventory_item, image),method: :delete, data: { confirm: 'Are you sure?' } %>
         <%end %>
       <% else %>
-        <%= image_tag "https://www.sibbaldtraining.com/wp-content/uploads/2017/05/dummy-profile-pic-male1-300x300.jpg" %>
+        <%= image_tag("party-item.png", {size: '300'})  %>
       <% end %>
     <div class='field'>
       <%= form.label "Gallery"%>

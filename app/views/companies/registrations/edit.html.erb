@@ -47,7 +47,7 @@
   <% if current_company.avatar.attached? %>
     <%= image_tag current_company.avatar.variant(resize: "100x100") %>
   <% else %>
-    <%= image_tag "https://www.sibbaldtraining.com/wp-content/uploads/2017/05/dummy-profile-pic-male1-300x300.jpg" %>
+    <%= image_tag("party-item.png", {size: '300'})  %>
   <% end %>
   <div class='field'>
     <%= f.label "Company Logo"%>
@@ -60,7 +60,7 @@
       <%= link_to "Delete", company_image_path(current_company, image), method: :delete %>
     <%end %>
     <% else %>
-      <%= image_tag "https://www.sibbaldtraining.com/wp-content/uploads/2017/05/dummy-profile-pic-male1-300x300.jpg" %>
+      <%= image_tag("party-item.png", {size: '300'})  %>
   <% end %>
   <div class='field'>
     <%= f.label "Gallery"%>

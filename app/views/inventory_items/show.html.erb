@@ -6,7 +6,7 @@
           <%= image_tag image.variant(resize: "400x400")%>
         <%end %>
       <% else %>
-          <%= image_tag "https://www.sibbaldtraining.com/wp-content/uploads/2017/05/dummy-profile-pic-male1-300x300.jpg" %>
+          <%= image_tag("party-item.png", {size: '300'})  %>
       <% end %>
       <h6><%= "#{@inventory_item.category.upcase} • #{@inventory_item.subcategory.upcase}"%></h6>
       <h3><%= @inventory_item.name %></h3>
@@ -18,7 +18,7 @@
     </div>
     <div class="col">
       <%= month_calendar events: @inventory_item.booking_requests do |date, bookings| %>
-          <%= date %>
+          <%= date.day %>
           <% bookings.each do |booking| %>
             <% if booking.item_rentals.any?{|x| x.status == 'approved'} %>
                 <p id= "booked">BOOKED</p>

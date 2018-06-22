@@ -39,7 +39,7 @@
   <% if @user.avatar.attached? %>
     <%= image_tag @user.avatar.variant(resize: "100x100") %>
   <% else %>
-    <%= image_tag "https://www.sibbaldtraining.com/wp-content/uploads/2017/05/dummy-profile-pic-male1-300x300.jpg" %>
+    <%= image_tag("party-avatar.png", {size: '100', class: 'img-thumbnail'})  %>
   <% end %>
   <div class='field'>
     <%= f.label "Profile Picture"%>

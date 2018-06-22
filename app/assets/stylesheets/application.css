@@ -15,6 +15,14 @@
  *= require simple_calendar
  */
 
+.navbar-brand {
+  padding-left: 150px;
+}
+
+.container-fluid * {
+  padding: 0px 150px;
+  /* no sirve bien */
+}
 
 #thumbnail {
   max-height: 500px;
@@ -24,27 +32,26 @@
 }
 
 .flashcard-holder{
-
+  margin: 0px 150px;
+  background-color: blue;
+  display: flex;
+  align-items: center;
 }
 
+.row {
+}
 
 .flashcard{
   margin: 10px;
   padding: 10px;
-  max-width: 500px;
-  background-color: blue;
-  
+  width: 300px;
+  background-color: red;
 }
 
-.flashcard *{
-
-  padding: -90px;
-
-}
 
 .flashcard img{
   border-radius: 3px;
-
+  max-width: 280px;
 }
 
 .gallery{

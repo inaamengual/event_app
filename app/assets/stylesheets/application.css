@@ -54,8 +54,20 @@
   max-width: 280px;
 }
 
-.gallery{
+.carousel{
+  background-color: red;
+  width: 500px;
+  height: 500px;
+}
 
+.carousel-inner{
+  background-color: blue;
+  height: 400px;
+}
+
+.carousel-item img{
+  margin: auto;
+  vertical-align: middle;
 }
 
 .table{

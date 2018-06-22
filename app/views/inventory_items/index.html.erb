@@ -7,14 +7,58 @@
   <%= "Welcome #{current_company.company_name}"%>
 </div>
 
-<div class= 'gallery'>
-  <% if current_company.images.attached? %>
+
+<% if current_company.images.attached? %>
+  <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+      <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+    </ol>
     <h2>GALLERY</h2>
-    <% current_company.images.each do |image| %>
-      <%= image_tag image.variant(resize: "400x400")%>
-    <%end %>
-  <% end %>
-</div>
+    <div class="carousel-inner">
+      <% current_company.images.each_with_index do |image, i| %>
+      <%= content_tag :div, class: ["carousel-item", i == 0 ? 'active' : ''] do %>
+          <%= image_tag image.variant(resize: "400x400"), class: 'd-block w-20'%>
+      <%end %>
+      <% end %>
+    </div>
+    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+<% end %>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <% if @inventory_items.any? %>
   <div class= 'flashcard-holder'>

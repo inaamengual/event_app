@@ -1,6 +1,5 @@
-<div class="container-fluids">
   <div class="row">
-    <div class="col">
+    <div class="col-md">
         <% if @inventory_item.images.attached? %>
             <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
               <ol class="carousel-indicators">
@@ -8,8 +7,7 @@
                 <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
                 <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
               </ol>
-              <h2>GALLERY</h2>
-              <div class="carousel-inner">
+              <div class="carousel-inner-item">
                 <% @inventory_item.images.each_with_index do |image, i| %>
                 <%= content_tag :div, class: ["carousel-item", i == 0 ? 'active' : ''] do %>
                     <%= image_tag image.variant(resize: "400x400"), class: 'd-block w-20'%>
@@ -37,7 +35,7 @@
         <button><%= link_to 'Edit', edit_inventory_item_path %></button>
       <%end %>
     </div>
-    <div class="col">
+    <div class="col-md">
       <%= month_calendar events: @inventory_item.booking_requests do |date, bookings| %>
           <%= date.day %>
           <% bookings.each do |booking| %>
@@ -63,4 +61,3 @@
       <% end %>
     </div>
   </div>
-</div>

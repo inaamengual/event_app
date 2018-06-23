@@ -15,65 +15,94 @@
  *= require simple_calendar
  */
 
+
+/* navbar */
+
 .navbar-brand {
   padding-left: 150px;
 }
 
-.container-fluid * {
+.container-fluid {
   padding: 0px 150px;
-  /* no sirve bien */
+  display: flex;
 }
 
+.btn{
+  background-color: white;
+  border: 0;
+  color: grey;
+}
+
+
+/* main */
+
 #thumbnail {
-  max-height: 500px;
-  max-width: 500px;
+  max-height: 100px;
+  max-width: 100px;
   border: .5px solid grey;
   border-radius: 10px 25px;
 }
 
+.col-md{
+  margin: 10px;
+  height: 420px;
+}
+
+.col-md img{
+  min-width: 100%;
+  max-width: 300px;
+  max-height: 300px;
+  border-radius: 3px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+/* flashcard */
+
 .flashcard-holder{
   margin: 0px 150px;
-  background-color: blue;
-  display: flex;
-  align-items: center;
 }
-
 .row {
+  margin: 0px 150px;
+  height: 520px;
 }
 
-.flashcard{
+.col-sm{
   margin: 10px;
-  padding: 10px;
-  width: 300px;
-  background-color: red;
+  height: 320px;
 }
 
-
-.flashcard img{
+.col-sm img{
+  min-width: 100%;
+  max-width: 250px;
+  max-height: 250px;
   border-radius: 3px;
-  max-width: 280px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.carousel{
-  background-color: red;
-  width: 500px;
-  height: 500px;
-}
+
+/* carousel */
 
 .carousel-inner{
-  background-color: blue;
-  height: 400px;
+  max-height: 400px;
 }
 
 .carousel-item img{
   margin: auto;
   vertical-align: middle;
+  min-height: 400px;
 }
 
-.table{
-
+.carousel-inner-item{
+  max-height: 350px;
 }
 
-.form{
-
+.carousel-inner-item img{
+  margin: auto;
+  vertical-align: middle;
+  min-height: 350px;
 }

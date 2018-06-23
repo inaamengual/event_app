@@ -37,7 +37,8 @@
     <td><%= "#{item.inventory_item.name}"%></td>
     <td><%= "#{Company.find(item.inventory_item.company_id).company_name}"%></td>
     <td><%= "#{item.status}"%></td>
-    <td>DESTROY LINK</td>
+
+    <td><%= link_to "Cancel", item, method: :delete, data: {confirm: "You sure?"} %></td>
     <td><%= "#{item.inventory_item.price}"%></td>
   </tr>
   <% else %>

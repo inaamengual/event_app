@@ -1,4 +1,4 @@
-<div class= "form">
+<div class= "form-group">
   <h3>New Item</h3>
   <%= form_with(model: @inventory_item, local: true) do |form| %>
     <div class="field">
@@ -37,6 +37,6 @@
       <%= form.submit %>
     </div>
   <% end %>
-</div>
+  <button><%= link_to "Delete Item", @inventory_item, method: :delete, data: {confirm: "You sure?"} %></button>
 
-<button><%= link_to "Delete Item", @inventory_item, method: :delete, data: {confirm: "You sure?"} %></button>
+</div>

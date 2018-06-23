@@ -29,6 +29,9 @@ class ItemRentalsController < ApplicationController
 
 
   def destroy
+    @item_rental = ItemRental.find(params[:id])
+    @item_rental.destroy
+    redirect_to booking_requests_path
   end
 
 

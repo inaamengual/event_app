@@ -34,6 +34,11 @@ class BookingRequestsController < ApplicationController
       @booking_request = BookingRequest.find(params[:id])
       @booking_request.destroy
       redirect_to booking_requests_path
+
+
+      @item_rental = ItemRental.find(params[:id])
+      @item_rental.destroy
+      redirect_to booking_requests_path
     end
 
     private

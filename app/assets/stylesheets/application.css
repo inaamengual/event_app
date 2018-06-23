@@ -106,3 +106,13 @@
   vertical-align: middle;
   min-height: 350px;
 }
+
+/* forms */
+
+.form-group {
+  width: 100%;
+  text-align: center;
+}
+
+.actions{
+}

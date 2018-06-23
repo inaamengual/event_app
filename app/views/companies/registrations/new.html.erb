@@ -1,6 +1,6 @@
-<%= render "companies/shared/links" %>
 
 
+<div class="form-group">
 <h2>Company Sign up</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
@@ -62,3 +62,7 @@
     <%= f.submit "Sign up" %>
   </div>
 <% end %>
+
+
+<%= render "companies/shared/links" %>
+</div>

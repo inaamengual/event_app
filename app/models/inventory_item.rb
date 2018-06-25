@@ -25,10 +25,10 @@ class InventoryItem < ApplicationRecord
 
   def self.categories
     {
-      'Furniture'   => ["Dining Chair", "Arm Chair", "Sofa", "Loveseat", "Ottoman", "Bar Stool", "Bench", "Cocktail Table", "Coffee Table", "Dinning Table", "Side Table", "Accent Table", "Highbuoy", "Bar", "DJ Booth", "Desk"],
+      'Furniture'   => ["Dining Chair", "Arm Chair", "Sofa", "Loveseat", "Ottoman", "Bar Stool", "Bench", "Cocktail Table", "Coffee Table", "Dining Table", "Side Table", "Accent Table", "Highbuoy", "Bar", "DJ Booth", "Desk"],
       'Decoration'  => ['Lantern', 'Pedestal', 'Mirror', 'Rug', 'Pillow', 'Vase', 'Directional Sign', 'Rope', 'Umbrella', 'Other'],
       'Tableware'   => ['Wine Glass', 'Champagne Glass', 'Regular Glass', 'Mug', 'Fork', 'Knife', 'Spoon', 'Serving Piece', 'Plate', 'Jar', 'Table Cloth', 'Runner', 'Napkin'],
-      'Production'  => ['Stage', 'Dance Floor', 'Guard Rail', 'Tent', 'Pool Cover', 'Lighting', 'Screens', 'TV', 'Fog', 'Portable Restroom'],
+      'Production'  => ['Stage', 'Dance Floor', 'Guard Rail', 'Tent', 'Pool Cover', 'Lighting', 'Screen', 'Fog', 'Portable Restroom'],
       'Kids'        => ['Bounce House', 'Slide', 'Games', 'Concession Stand'],
       'Service'     => ['Bouncer', 'Security', 'Valet', 'Bartender', 'Barback', 'Waiter', 'Dancer', 'DJ', 'Musician']
     }

@@ -12,6 +12,9 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
+
+
+
   <body>
     <header>
       <% if current_user %>
@@ -53,8 +56,8 @@
               <% end %>
             </div>
           </div>
-          <%= search_field_tag( :term, "Try \"#{Company.all.shuffle.first.company_name}\"", {class:"form-control mr-sm-2"}) %>
-          <%= submit_tag('Search')%>
+          <%= search_field_tag( :term, nil, {class:"form-control mr-sm-2", placeholder: "Try \"#{Company.all.shuffle.first.company_name}\""}) %>
+
               <% if @results.nil? %>
               <% elsif @results.empty? %>
                 Try your search again.
@@ -91,35 +94,11 @@
     </header>
 
 
-    <% if current_user  %>
-            <% if current_user.booking_requests.any?{|x| x.item_rentals.any?{ |y| y.status=='pending'}}%>
 
-                <div class="alert alert-info alert-dismissible fade show" role="alert">
-              <strong>You have pending requests.</strong> Keep on planning your fiesta.
-              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-                </div>
-              <%end %>
-            <%if current_user.booking_requests.any?{|x| x.item_rentals.any?{ |y| y.status=='approved'}}  %>
-
-                        <div class="alert alert-success alert-dismissible fade show" role="alert">
-                          <strong>FIESTA-TIME! You have approved requests!</strong> Check your events.
-                          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                          <span aria-hidden="true">&times;</span>
-                        </div>
-            <% end %>
-            <%if current_user.booking_requests.any?{|x| x.item_rentals.any?{ |y| y.status=='declined'}}  %>
-
-                      <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                          <strong>You have declined requests!</strong> You should check out your events.
-                          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                          <span aria-hidden="true" class='remove-alert'>&times;</span>
-                      </div>
-            <% end %>
-    <% end %>
-
-</button>
+  </button>
 </div>
+
     <%= yield %>
+
   </body>
 </html>

@@ -1,3 +1,17 @@
+<% if current_company  %>
+        <% if current_company.inventory_items.any?{|x| x.item_rentals.any?{ |y| y.status=='pending'}}%>
+
+            <div class="alert alert-info alert-dismissible fade show" role="alert">
+          <strong>You have pending requests.</strong> Go review them.
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+            </div>
+        <%end %>
+
+<% end %>
+
+
+
 <div class="row">
   <div class= "col-md">
     <% if current_company.avatar.attached? %>

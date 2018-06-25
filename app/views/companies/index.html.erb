@@ -1,3 +1,31 @@
+<% if current_user  %>
+        <% if current_user.booking_requests.any?{|x| x.item_rentals.any?{ |y| y.status=='pending'}}%>
+
+            <div class="alert alert-info alert-dismissible fade show" role="alert">
+          <strong>You have pending requests.</strong> Keep on planning your fiesta.
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+            </div>
+          <%end %>
+        <%if current_user.booking_requests.any?{|x| x.item_rentals.any?{ |y| y.status=='approved'}}  %>
+
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                      <strong>FIESTA-TIME! You have approved requests!</strong> Check your event.
+                      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </div>
+        <% end %>
+        <%if current_user.booking_requests.any?{|x| x.item_rentals.any?{ |y| y.status=='declined'}}  %>
+
+                  <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                      <strong>You have declined requests!</strong> You should check out your events.
+                      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                      <span aria-hidden="true" class='remove-alert'>&times;</span>
+                  </div>
+        <% end %>
+<% end %>
+
+
 <div class="flashcard-holder">
   <h3>Companies</h3>
   <div class="row">

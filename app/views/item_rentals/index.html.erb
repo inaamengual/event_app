@@ -11,28 +11,38 @@
 
 <% if current_user%>
   <% @item_rentals.each do |rental| %>
-  <tr>
-    <td><%= link_to "#{rental.id}", item_rental_path(rental) %></td>
-    <td><%= rental.inventory_item.id %></td>
-    <td><%= rental.inventory_item.name %></td>
-    <td><%= rental.booking_request.venue_name %></td>
-    <td><%= rental.booking_request.start_time %></td>
-    <td><%= rental.status %></td>
-  </tr>
+
+
+      <% if rental.booking_request.user == current_user %>
+      <tr>
+
+        <td><%= link_to "#{rental.id}", item_rental_path(rental) %></td>
+        <td><%= rental.inventory_item.id %></td>
+        <td><%= rental.inventory_item.name %></td>
+        <td><%= rental.booking_request.venue_name %></td>
+        <td><%= rental.booking_request.start_time %></td>
+        <td><%= rental.status %></td>
+      </tr>
+      <%end %>
   <% end %>
+
 </table>
 <% end%>
 
 <% if current_company%>
   <% @item_rentals.each do |rental| %>
-  <tr>
-    <td><%= link_to "#{rental.id}", edit_item_rental_path(rental) %></td>
-    <td><%= rental.inventory_item.id %></td>
-    <td><%= rental.inventory_item.name %></td>
-    <td><%= rental.booking_request.venue_name %></td>
-    <td><%= rental.booking_request.start_time %></td>
-    <td><%= rental.status %></td>
-  </tr>
+
+      <% if rental.inventory_item.company == current_company %>
+        <tr>
+          <td><%= link_to "#{rental.id}", edit_item_rental_path(rental) %></td>
+          <td><%= rental.inventory_item.id %></td>
+          <td><%= rental.inventory_item.name %></td>
+          <td><%= rental.booking_request.venue_name %></td>
+          <td><%= rental.booking_request.start_time %></td>
+          <td><%= rental.status %></td>
+        </tr>
+      <%end %>
+
   <% end %>
 </table>
 <% end%>

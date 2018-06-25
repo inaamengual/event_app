@@ -18,9 +18,9 @@ class InventoryItem < ApplicationRecord
 
   def self.search(term:, category:)
     return all if term.empty? && category.empty?
-    return where("name like :term or description like :term or subcategory like :term", term: "%#{term}%") if term.present? && category.empty?
+    return where("name ilike :term or description like :term or subcategory like :term", term: "%#{term}%") if term.present? && category.empty?
     return where(category: category) if term.empty? && category.any?
-    return where("name like :term or description like :term or subcategory like :term", term: "%#{term}%").where(category: category) if term.present? && category.any?
+    return where("name ilike :term or description like :term or subcategory like :term", term: "%#{term}%").where(category: category) if term.present? && category.any?
   end
 
   def self.categories

@@ -44,3 +44,18 @@ Company.create(company_name: 'Mimi\'s Parties', address: '67 Fun St.', category:
 
 
 Company.find(2).inventory_items.create(name: 'Blue Panther Chair', category: 'Furniture', subcategory: 'Arm Chair', price: '350', quantity: '6', description: 'Beautiful arm chair to set the mood in your party')
+Company.find(2).inventory_items.create(name: 'Lion Sofa', category: 'Furniture', subcategory: 'Sofa', price: '500', quantity: '10', description: 'Great to set up lounges for your party')
+Company.find(2).inventory_items.create(name: 'Deco Bar', category: 'Furniture', subcategory: 'Bar', price: '600', quantity: '4', description: '5ft wide')
+Company.find(2).inventory_items.create(name: 'Party Booth', category: 'Furniture', subcategory: 'DJ Booth', price: '500', quantity: '2', description: 'Give your party the perfect touch with a mirror DJ Booth')
+Company.find(2).inventory_items.create(name: 'Greco Table', category: 'Furniture', subcategory: 'Dining Table', price: '450', quantity: '10', description: 'Wood dinning table, can be used without a tablecloth')
+Company.find(2).inventory_items.create(name: 'Greco Chair', category: 'Furniture', subcategory: 'Dining Chair', price: '60', quantity: '100', description: 'Beautiful wood dining chairs, Greco Table\'s match')
+Company.find(2).inventory_items.create(name: 'Lion Table', category: 'Furniture', subcategory: 'Coffee Table', price: '200', quantity: '15', description: 'Create a lounge with the lion coffee table & the lion sofas')
+Company.find(2).inventory_items.create(name: 'Deco High Table', category: 'Furniture', subcategory: 'Highbuoy', price: '150', quantity: '20', description: 'Cocktail tables')
+Company.find(2).inventory_items.create(name: 'Deco Bar Stool', category: 'Furniture', subcategory: 'Bar Stool', price: '50', quantity: '80', description: 'Perfect match for the Deco collection tables')
+Company.find(2).inventory_items.create(name: 'Lion Bench', category: 'Furniture', subcategory: 'Bench', price: '150', quantity: '10', description: 'Group with the Lion Sofa')
+
+Company.find(4).inventory_items.create(name: 'Weston Stage', category: 'Production', subcategory: 'Stage', price: '1500', quantity: '2', description: 'Give your party altitude with a stage for your DJ')
+Company.find(4).inventory_items.create(name: '305 Dance Floor', category: 'Production', subcategory: 'Dance Floor', price: '800', quantity: '2', description: 'Set the dance floor with a different flooring')
+Company.find(4).inventory_items.create(name: 'FL Tent', category: 'Production', subcategory: 'Tent', price: '2800', quantity: '2', description: 'Outside venue? Don\'t let rain ruin your party with our FL clear tent')
+Company.find(4).inventory_items.create(name: 'Weston Stage', category: 'Production', subcategory: 'Stage', price: '1500', quantity: '2', description: 'Give your party altitude with a stage for your DJ')
+Company.find(4).inventory_items.create(name: 'Party Screen', category: 'Production', subcategory: 'Screen', price: '600', quantity: '10', description: 'Have your own music festival with screens to match the music')

@@ -16,6 +16,40 @@
  */
 
 
+ #canvas {
+
+  width: 80%;
+  position: absolute;
+  z-index: -1;
+  margin: 0 auto;
+ }
+
+.form-container {
+  width: 90%;
+  margin: 0 auto;
+  border-radius: 5px;
+  border: 1px solid gray;
+  padding: 15px;
+  bottom: 20px;
+  margin-top: 70px;
+  box-shadow: 10px 10px 10px grey;
+
+}
+
+
+.form-container-users {
+
+  width: 50%;
+  margin: 0 auto;
+  border-radius: 5px;
+  border: 1px solid gray;
+  padding: 15px;
+  bottom: 20px;
+  margin-top: 70px;
+  box-shadow: 10px 10px 10px grey;
+
+}
+
 /* navbar */
 
 .navbar-brand {

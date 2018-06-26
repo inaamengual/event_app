@@ -19,7 +19,7 @@ User.create(first_name: 'Dan', last_name: 'Hasan', phone_number: '954-294-4242',
 User.create(first_name: 'Gabe', last_name: 'Garcia', phone_number: '954-294-4242', email: 'gabegarcia@gmail.com', password: '123456')
 
 Company.create(company_name: 'Tati\'s Rental', address: '600 SW 45th St.', category: 'Tableware', phone_number: '786-454-0000', service_distance: '100 miles', email: 'tatis@gmail.com', password: '123456')
-Company.create(company_name: 'Vince Furniture', address: '611 Mad St.', category: 'Furniture', phone_number: '786-454-0000', service_distance: '50 miles', email: 'vincefurniture@gmail.com', password: '123456')
+Company.create(company_name: 'Michael Scott Event Company', address: '64 Dunder Mifflin Lane. Scranton, PA', category: 'Furniture', phone_number: '786-454-0000', service_distance: '50 miles', email: 'bestboss@msec.com', password: '123456')
 Company.create(company_name: 'South Florida Event Services', address: '350 S Miami Ave', category: 'Service', phone_number: '786-454-0000', service_distance: '30 miles', email: 'southfloridaeventservices@gmail.com', password: '123456')
 Company.create(company_name: 'Ernie Stages', address: '612 97th Ave', category: 'Production', phone_number: '786-454-0000', service_distance: '150 miles', email: 'erniestages@gmail.com', password: '123456')
 Company.create(company_name: 'Latitude 54', address: '2240 Quail Ave.', category: 'Decoration', phone_number: '786-454-0000', service_distance: '60 miles', email: 'latitude54@gmail.com', password: '123456')

@@ -13,13 +13,16 @@
 
 
 <div class="row">
-  <div class= "col-md">
+
+  <div >
+    <p><%= "Welcome #{current_company.company_name}"%></p>
     <% if current_company.avatar.attached? %>
-      <%= image_tag current_company.avatar.variant(resize: "100x100")  %>
+        <%= image_tag current_company.avatar.variant(resize: "300x300") %>
+
     <% else %>
       <%= image_tag("party-avatar.png", {size: '100', class: 'img-thumbnail'})  %>
     <% end %>
-    <%= "Welcome #{current_company.company_name}"%>
+
   </div>
   <div class= "col-md">
   <% if current_company.images.attached? %>

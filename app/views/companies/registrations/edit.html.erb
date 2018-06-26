@@ -48,6 +48,7 @@
     <%= f.label :current_password %> <i>Required</i><br />
     <%= f.password_field :current_password, autocomplete: "off" %>
   </div>
+  <br>
   <% if current_company.avatar.attached? %>
     <%= image_tag current_company.avatar.variant(resize: "100x100") %>
   <% else %>
@@ -56,6 +57,7 @@
   <div class='field'>
     <%= f.file_field :avatar%>
   </div>
+  <br>
   <h4>Images</h4>
   <% if current_company.images.attached? %>
     <% current_company.images.each do |image| %>
@@ -68,6 +70,7 @@
   <div class='field'>
     <%= f.file_field :images, multiple: true%>
   </div>
+  <br>
   <div class="actions">
     <%= f.submit "Update" %>
   </div>

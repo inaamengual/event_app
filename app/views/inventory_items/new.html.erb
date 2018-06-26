@@ -1,3 +1,4 @@
+<div class="form-container-users">
 <div class= "form-group">
   <h3>New Item</h3>
   <%= form_with(model: @inventory_item, local: true) do |form| %>
@@ -30,13 +31,16 @@
     <div class="">
       <%= form.select :subcategory, grouped_options_for_select(InventoryItem.categories) %>
     </div>
+    <hr>
     <h4>Images</h4>
     <div class='field'>
       <%= form.label "Gallery"%>
       <%= form.file_field :images, multiple: true%>
     </div>
+    <hr>
     <div class="actions">
       <%= form.submit %>
     </div>
   <% end %>
+</div>
 </div>

@@ -1,7 +1,7 @@
 <div class="row">
-          <div class= "col-md">
+          <div >
             <% if @company.avatar.attached? %>
-              <%= image_tag @company.avatar.variant(resize: "100x100") %>
+              <%= image_tag @company.avatar.variant(resize: "300x300") %>
             <% else %>
               <%= image_tag("party-item.png", {size: '300'})  %>
             <% end %>

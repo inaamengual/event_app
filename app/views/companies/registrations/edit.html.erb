@@ -54,7 +54,6 @@
     <%= image_tag("party-item.png", {size: '300'})  %>
   <% end %>
   <div class='field'>
-    <%= f.label "Company Logo"%>
     <%= f.file_field :avatar%>
   </div>
   <h4>Images</h4>
@@ -67,14 +66,13 @@
       <%= image_tag("party-item.png", {size: '300'})  %>
   <% end %>
   <div class='field'>
-    <%= f.label "Gallery"%>
     <%= f.file_field :images, multiple: true%>
   </div>
   <div class="actions">
     <%= f.submit "Update" %>
   </div>
 <% end %>
-</br>
+<hr>
 <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %>
 </div>
 

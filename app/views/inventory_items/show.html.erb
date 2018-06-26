@@ -40,7 +40,7 @@
           <%= date.day %>
           <% bookings.each do |booking| %>
             <% if booking.item_rentals.any?{|x| x.status == 'approved'} %>
-                <p id= "booked">BOOKED</p>
+                <p id= "booked">Unavailable</p>
             <% end %>
           <% end %>
           <% if current_user %>

@@ -15,6 +15,10 @@
  *= require simple_calendar
  */
 
+* {
+  color: rgba(0,0,0,.5)
+}
+
 
  #canvas {
 
@@ -28,11 +32,11 @@
   width: 90%;
   margin: 0 auto;
   border-radius: 5px;
-  border: 1px solid gray;
+  border: 1px solid #F0F0F0;
   padding: 15px;
   bottom: 20px;
   margin-top: 70px;
-  box-shadow: 10px 10px 10px grey;
+  box-shadow: 10px 10px 10px #F0F0F0;
 
 }
 
@@ -42,11 +46,11 @@
   width: 50%;
   margin: 0 auto;
   border-radius: 5px;
-  border: 1px solid gray;
+  border: 1px solid #F0F0F0;
   padding: 15px;
   bottom: 20px;
   margin-top: 70px;
-  box-shadow: 10px 10px 10px grey;
+  box-shadow: 10px 10px 10px #F0F0F0;
 
 }
 
@@ -59,6 +63,8 @@
 .container-fluid {
   padding: 0px 150px;
   display: flex;
+  background: linear-gradient(#F0F0F0, white);
+
 }
 
 .btn{
@@ -149,4 +155,67 @@
 }
 
 .actions{
+}
+
+/* buttons */
+h3{
+  color: #585858;
+}
+
+input {
+    border: none;
+    border-bottom: 1px solid #F0F0F0;
+}
+
+input[type="submit"] {
+  background-color: #008080	;
+    color: white;
+    font-weight: lighter;
+    border-bottom: none;
+    border-radius: 5px;
+      box-shadow: 10px 10px 10px #F0F0F0;
+}
+
+input[type="submit"]:hover {
+  background-color: #008080;
+  opacity: 0.9;
+    color: #F8F8F8	;
+}
+
+input[type="file"] {
+}
+
+
+button {
+  background-color: #008080	;
+    color: white;
+    border-bottom: none;
+    border-radius: 5px;
+    font-weight: lighter;
+}
+
+button:hover {
+  background-color: #008080;
+  opacity: 0.9;
+    color: #F8F8F8	;
+}
+
+button a {
+  color: white;
+  font-weight: lighter;
+}
+
+
+input[type="search"]{
+  border: none;
+  border-bottom: 1px solid #F0F0F0;
+}
+
+a {
+  color: #585858;
+}
+
+a:hover {
+  color: #008080;
+  text-decoration: none;
 }

@@ -19,7 +19,9 @@
   color: rgba(0,0,0,.5)
 }
 
-
+#navlogo{
+  width: 70px;
+}
 
  #canvas {
 

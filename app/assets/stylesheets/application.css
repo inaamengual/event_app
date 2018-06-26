@@ -20,6 +20,7 @@
 }
 
 
+
  #canvas {
 
   width: 80%;
@@ -168,7 +169,7 @@ input {
 }
 
 input[type="submit"] {
-  background-color: #008080	;
+  background-color: #EC008C	;
     color: white;
     font-weight: lighter;
     border-bottom: none;
@@ -177,7 +178,7 @@ input[type="submit"] {
 }
 
 input[type="submit"]:hover {
-  background-color: #008080;
+  background-color: #EC008C;
   opacity: 0.9;
     color: #F8F8F8	;
 }
@@ -187,7 +188,7 @@ input[type="file"] {
 
 
 button {
-  background-color: #008080	;
+  background-color: #EC008C	;
     color: white;
     border-bottom: none;
     border-radius: 5px;
@@ -195,7 +196,7 @@ button {
 }
 
 button:hover {
-  background-color: #008080;
+  background-color: #EC008C;
   opacity: 0.9;
     color: #F8F8F8	;
 }
@@ -216,6 +217,6 @@ a {
 }
 
 a:hover {
-  color: #008080;
+  color: #EC008C;
   text-decoration: none;
 }

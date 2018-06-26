@@ -1,7 +1,10 @@
 
+<div class="form-container-users">
 
 <div class="form-group">
-<h2>Company Sign up</h2>
+  <%= image_tag("fiestafy.png", {size: '100 x 50'})  %>
+
+<h2>Companies</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
@@ -63,6 +66,8 @@
   </div>
 <% end %>
 
+<hr>
 
 <%= render "companies/shared/links" %>
+</div>
 </div>

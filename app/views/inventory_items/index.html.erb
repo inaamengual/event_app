@@ -54,6 +54,8 @@
 
 <% if @inventory_items.any? %>
   <div class= 'flashcard-holder'>
+    <h3 id= "item">Inventory</h3>
+        
       <div class="row">
       <% current_company.inventory_items.each do |item| %>
         <div class="col-sm">
